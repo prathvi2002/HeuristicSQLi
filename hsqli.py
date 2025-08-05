@@ -636,7 +636,7 @@ if __name__ == "__main__":
             }
 
             # -- Heuristic SQLi test THROUGH PRESENCE OF 5XX RESPONSE STATUS CODE
-            sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value proxy_url=proxy_url_value, headers=headers)
+            sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
             # if test_sqli_500 doesn't return None
             if sqli_500_code:
                 mutated_url, response_status_code = sqli_500_code
@@ -644,6 +644,6 @@ if __name__ == "__main__":
 
             # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
             # Get baseline response
-            sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value proxy_url=proxy_url_value, headers=headers)
+            sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
             if sqli_error_present is True:
                 print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error: '{error_message}' in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}")
