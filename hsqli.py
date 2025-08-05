@@ -7,6 +7,7 @@ import argcomplete
 from collections import defaultdict
 import requests
 import urllib3  # For handling SSL warning suppression
+import concurrent.futures
 
 import ssl
 import gzip
@@ -585,20 +586,42 @@ def replace_empty_url_param(url, target_param, default_value="123"):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="SQLi vulnerability detector via 5xx errors and presence of SQL error messages.")
-    parser.add_argument("urls", nargs="*", help="One or more target URLs to test.")
-    parser.add_argument("--proxy", help="Optional proxy URL to route requests through. Example: --proxy http://127.0.0.1:9090")
-    parser.add_argument("--debug", action="store_true", help="Enable debug mode.")
+    parser = argparse.ArgumentParser(description="SQLi vulnerability detector via 5xx errors and presence of SQL error messages.", formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument(
+        "urls",
+        nargs="*",
+        help="One or more target URLs to test. Provide as CLI positional arguments or via piped stdin. Example: hsqli http://example.com?id=1 OR echo \"http://example.com?id=1\" | hsqli"
+    )
+    parser.add_argument(
+        "-P",
+        "--parameters",
+        nargs='+',                  # Accept one or more values
+        help="Only test these parameter names for potential SQLi (case-sensitive). If not provided all parameters are tested. Example: --parameters ID name token"
+    )
+    parser.add_argument(
+        "-p",
+        "--proxy",
+        help="Optional proxy URL to route requests through. Example: --proxy http://127.0.0.1:9090"
+    )
+    parser.add_argument(
+        "-d",
+        "--debug",
+        action="store_true",
+        help="Enable debug mode."
+    )
+    parser.add_argument(
+        "-T",
+        "--threads",
+        type=int,
+        default=10,
+        help="Number of concurrent worker threads to use (default: 10). Example: --threads 20"
+    )
+    parser.add_argument(
+        "-t",
         "--timeout",
         type=int,
         default=10,
         help="Maximum seconds to wait for a response (default 10). Example: --timeout 10"
-    )
-    parser.add_argument(
-        "--parameters",
-        nargs='+',                  # Accept one or more values
-        help="Only test these parameter names for potential SQLi (case-sensitive). If not provided all parameters are tested. Example: --parameters ID name token"
     )
 
     argcomplete.autocomplete(parser)
@@ -617,10 +640,11 @@ if __name__ == "__main__":
     if not urls_value:
         parser.error("No URLs provided (via args or piped input).")
 
-    debug_mode = args.debug
-    proxy_url_value = args.proxy
-    timeout_value = args.timeout
     target_parameters_value = args.parameters
+    proxy_url_value = args.proxy
+    debug_mode = args.debug
+    timeout_value = args.timeout
+    threads_value = args.threads
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0",
@@ -629,8 +653,8 @@ if __name__ == "__main__":
         "Accept-Encoding": "gzip, deflate, br"
     }
 
-    # for check for error presence throught status code, then check for error presence throught sql error present in mutated response
-    for url in urls_value:
+    def scan_url(url):
+        # # for check for error presence throught status code, then check for error presence throught sql error present in mutated response
         # if target parameter(s) provided using --parameters, test for those specific parameters only
         if target_parameters_value:
             _, parameter_names = detect_paramters(url)
@@ -681,3 +705,13 @@ if __name__ == "__main__":
                 sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
                 if sqli_error_present is True:
                     print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error: '{error_message}' in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}")
+
+
+    MAX_PARALLEL = threads_value
+
+    # Create a pool with up to 10 worker threads
+    with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_PARALLEL) as executor:
+        # executor.map will feed each url into scan_url, up to 10 at once
+        for _ in executor.map(scan_url, urls_value):
+            # scan_url prints its own findings, so we don't need to do anything here
+            pass
