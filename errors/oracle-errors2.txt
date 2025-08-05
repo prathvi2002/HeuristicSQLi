@@ -1,0 +1,1007 @@
+An attempt to update or delete an already deleted row was made: No row was updated or deleted.
+Null values were eliminated from the argument of a column function.
+Privilege not revoked from user <authorizationID>.
+Role <authorizationID> not revoked from authentication id <authorizationID>.
+WITH ADMIN OPTION of role <authorizationID> not revoked from authentication id <authorizationID>.
+Generated column <columnName> dropped from table <tableName>.
+XX Attempt to return too many result sets.
+The constraint <constraintName> on table <tableName> has been dropped.
+The view <viewName> has been dropped.
+The trigger <triggerName> on table <tableName> has been dropped.
+The column <columnName> on table <tableName> has been modified by adding a not null constraint.
+The new index is a duplicate of an existing index: <indexName>.
+The value <valueName> may be truncated.
+The newly defined synonym '<synonymName>' resolved to the object '<objectName>' which is currently undefined.
+Database '<databaseName>' not created, connection made to existing database instead.
+Scroll sensitive cursors are not currently implemented.
+The class '<className>' for column '<columnName>' does not implement java.io.Serializable or java.sql.SQLData. Instances must implement one of these interfaces to allow them to be stored.
+Database upgrade succeeded. The upgraded database is now ready for use. Revalidating stored prepared statements failed. See next exception for details of failure.
+ResultSet not updatable. Query does not qualify to generate an updatable ResultSet.
+ResultSetHoldability restricted to ResultSet.CLOSE_CURSORS_AT_COMMIT for a global transaction.
+Unable to open resultSet type <resultSetType>. ResultSet type <resultSetType> opened.
+Scroll sensitive result sets are not supported by server; remapping to forward-only cursor
+Unable to obtain message text from server. See the next exception. The stored procedure SYSIBM.SQLCAMESSAGE is not installed on the server. Please contact your database administrator.
+Number of rows returned (<number>) is too large to fit in an integer; the value returned will be truncated.
+SQL authorization is being used without first enabling authentication.
+At least one parameter to the current statement is uninitialized.
+Parameter <parameterName> is an <procedureName> procedure parameter and must be registered with CallableStatement.registerOutParameter before execution.
+No input parameters.
+Connection closed by unknown interrupt.
+A connection could not be established because the security token is larger than the maximum allowed by the network protocol.
+A connection could not be established because the user id has a length of zero or is larger than the maximum allowed by the network protocol.
+A connection could not be established because the password has a length of zero or is larger than the maximum allowed by the network protocol.
+A connection could not be established because the external name (EXTNAM) has a length of zero or is larger than the maximum allowed by the network protocol.
+A connection could not be established because the server name (SRVNAM) has a length of zero or is larger than the maximum allowed by the network protocol.
+Required Derby DataSource property <propertyName> not set.
+<error> : Error connecting to server <serverName> on port <portNumber> with message <messageText>.
+SocketException: '<error>'
+Unable to open stream on socket: '<error>'.
+User id length (<number>) is outside the range of 1 to <number>.
+Password length (<value>) is outside the range of 1 to <number>.
+User id can not be null.
+Password can not be null.
+A connection could not be established because the database name '<databaseName>' is larger than the maximum length allowed by the network protocol.
+No current connection.
+getConnection() is not valid on a closed PooledConnection.
+Lob method called after connection was closed
+The underlying physical connection is stale or closed.
+Connection refused : <connectionName>
+Connection authentication failure occurred. Reason: <reasonText>.
+The connection was refused because the database <databaseName> was not found.
+Database connection refused.
+User '<authorizationID>' cannot shut down database '<databaseName>'. Only the database owner can perform this operation.
+User '<authorizationID>' cannot (re)encrypt database '<databaseName>'. Only the database owner can perform this operation.
+User '<authorizationID>' cannot hard upgrade database '<databaseName>'. Only the database owner can perform this operation.
+Connection refused to database '<databaseName>' because it is in replication slave mode.
+User '<authorizationID>' cannot issue a replication operation on database '<databaseName>'. Only the database owner can perform this operation.
+Missing permission for user '<authorizationID>' to shutdown system [<exceptionMsg>].
+Cannot check system permission to create database '<databaseName>' [<exceptionMsg>].
+Missing permission for user '<authorizationID>' to create database '<databaseName>' [<exceptionMsg>].
+Connection authentication failure occurred. Either the supplied credentials were invalid, or the database uses a password encryption scheme not compatible with the strong password substitution security mechanism. If this error started after upgrade, refer to the release note for DERBY-4483 for options.
+A network protocol error was encountered and the connection has been terminated: <error>
+An error occurred during connect reset and the connection has been terminated. See chained exceptions for details.
+SocketException: '<error>'
+A communications error has been detected: <error>.
+An error occurred during a deferred connect reset and the connection has been terminated. See chained exceptions for details.
+Insufficient data while reading from the network - expected a minimum of <number> bytes and received only <number> bytes. The connection has been terminated.
+Attempt to fully materialize lob data that is too large for the JVM. The connection has been terminated.
+Database '<databaseName>' shutdown.
+Database '<databaseName>' dropped.
+Feature not implemented: <featureName>.
+The DRDA command <commandName> is not currently implemented. The connection has been terminated.
+JDBC method is not yet implemented.
+JDBC method <methodName> is not supported by the server. Please upgrade the server.
+resultSetHoldability property <propertyName> not supported
+cancel() not supported by the server.
+Security mechanism '<mechanismName>' is not supported.
+The data type '<datatypeName>' is not supported.
+Invalid role specification, role does not exist: '<roleName>'.
+Invalid role specification, role not granted to current user or PUBLIC: '<roleName>'.
+Scalar subquery is only allowed to return a single row.
+A truncation error was encountered trying to shrink <value> '<value>' to length <value>.
+The resulting value is outside the range for the data type <datatypeName>.
+Year (<value>) exceeds the maximum '<value>'.
+Decimal may only be up to 31 digits.
+Overflow occurred during numeric data type conversion of '<datatypeName>' to <datatypeName>.
+The length (<number>) exceeds the maximum length for the data type (<datatypeName>).
+Unable to convert a value of type '<typeName>' to type '<typeName>' : the encoding is not supported.
+The required character converter is not available.
+Unicode string cannot convert to Ebcdic string
+Unrecognized JDBC type. Type: <typeName>, columnCount: <value>, columnIndex: <value>.
+Invalid JDBC type for parameter <parameterName>.
+Unrecognized Java SQL type <datatypeName>.
+Unicode string cannot convert to UTF-8 string
+An attempt was made to get a data value of type '<datatypeName>' from a data value of type '<datatypeName>'.
+The string representation of a datetime value is out of range.
+The syntax of the string representation of a datetime value is incorrect.
+'<argument>' is an invalid argument to the <functionName> function.
+Sequence generator '<sequenceName>' does not cycle. No more values can be obtained from this sequence generator.
+Values assigned to XML columns must be well-formed DOCUMENT nodes.
+Invalid XML DOCUMENT: <parserError>
+Invalid context item for <operatorName> operator; context items must be well-formed DOCUMENT nodes.
+XQuery serialization error: Attempted to serialize one or more top-level Attribute nodes.
+The second or third argument of the SUBSTR function is out of range.
+The range specified for the substring with offset <offset> and len <len> is out of range for the String: <str>.
+Attempt to divide by zero.
+Attempt to take the square root of a negative number, '<value>'.
+The start position for LOCATE is invalid; it must be a positive integer. The index to start the search from is '<fromString>'. The string to search for is '<startIndex>'. The string to search from is '<searchString>'.
+Invalid data conversion: requested conversion would result in a loss of precision of <value>
+The '<functionName>' function is not allowed on the following set of types. First operand is of type '<typeName>'. Second operand is of type '<typeName>'. Third operand (start position) is of type '<typeName>'.
+Invalid character string format for type <typeName>.
+Invalid escape sequence, '<sequenceName>'. The escape string must be exactly one character. It cannot be a null or more than one character.
+Invalid trim string, '<string>'. The trim string must be exactly one character or NULL. It cannot be more than one character.
+Escape character must be followed by escape character, '_', or '%'. It cannot be followed by any other character or be at the end of the pattern.
+The built-in TRIM() function only supports a single trim character. The LTRIM() and RTRIM() built-in functions support multiple trim characters.
+The string exceeds the maximum length of <number>.
+An ESCAPE clause of NULL returns undefined results and is not allowed.
+Invalid row count for OFFSET, must be >= 0.
+Invalid row count for FIRST/NEXT, must be >= 1.
+NULL value not allowed for <string> argument.
+Column '<columnName>' cannot accept a NULL value.
+<constraintName> on table '<tableName>' caused a violation of foreign key constraint '<value>' for key <keyName>. The statement has been rolled back.
+The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by '<value>' defined on '<value>'.
+The check constraint '<tableName>' was violated while performing an INSERT or UPDATE on table '<constraintName>'.
+Invalid cursor state - no current row.
+The identified cursor is not open.
+Cannot close a connection while a transaction is still active.
+Invalid transaction state: active SQL transaction.
+Unable to set the connection read-only property in an active transaction.
+An SQL data change is not permitted for a read-only connection, user or database.
+DDL is not permitted for a read-only connection, user or database.
+A read-only user or a user in a read-only database is not permitted to disable read-only mode on a connection.
+The user name '<authorizationID>' is not valid.
+setAutoCommit(true) invalid during global transaction.
+COMMIT or ROLLBACK invalid for application execution environment.
+The exception '<exception>' was thrown while evaluating an expression.
+The external routine is not allowed to execute SQL statements.
+The routine attempted to modify data, but the routine was not defined as MODIFIES SQL DATA.
+The routine attempted to read data, but the routine was not defined as READS SQL DATA.
+A NULL value cannot be passed to a method which takes a parameter of primitive type '<type>'.
+SAVEPOINT, <savepointName> does not exist or is not active in the current transaction.
+The maximum number of savepoints has been reached.
+A SAVEPOINT with the passed name already exists in the current transaction.
+A RELEASE or ROLLBACK TO SAVEPOINT was specified, but the savepoint does not exist.
+A lock could not be obtained due to a deadlock, cycle of locks and waiters is: <lockCycle>. The selected victim is XID : <transactionID>.
+Dead statement. This may be caused by catching a transaction severity error inside this statement.
+Container has been closed.
+Container was opened in read-only mode.
+Container <containerName> cannot be opened; it either has been dropped or does not exist.
+A lock could not be obtained within the time requested
+A lock could not be obtained within the time requested. The lockTable dump is: <tableDump>
+An internal error was identified by RawStore module.
+An exception was thrown during transaction commit.
+An exception was thrown during rollback of a SAVEPOINT.
+An attempt was made to close a transaction that was still active. The transaction has been aborted.
+Exception thrown during an internal transaction.
+Database is in quiescent state, cannot activate transaction. Please wait for a moment till it exits the quiescent state.
+Operation is not supported in an internal transaction.
+Syntax error or access rule violation; see additional errors for details.
+User '<authorizationID>' does not have <permissionType> permission on table '<schemaNamet>'.'<tableName>'.
+User '<authorizationID>' does not have <permissionType> permission on table '<schemaNamet>'.'<tableName>' for grant.
+User '<authorizationID>' does not have <permissionType> permission on column '<columnName>' of table '<schemaName>'.'<tableName>'.
+User '<authorizationID>' does not have <permissionType> permission on column '<columnName>' of table '<schemaName>'.'<tableName>' for grant.
+User '<authorizationID>' does not have <permissionType> permission on <objectName> '<schemaName>'.'<tableName>'.
+User '<authorizationID>' does not have <permissionType> permission on <objectName> '<schemaName>'.'<tableName>' for grant.
+User '<authorizationID>' is not the owner of <objectName> '<schemaName>'.'<tableName>'.
+User '<authorizationID>' can not perform the operation in schema '<schemaName>'.
+User '<authorizationID>' can not create schema '<schemaName>'. Only database owner could issue this statement.
+Specified grant or revoke operation is not allowed on object '<objectName>'.
+User '<authorizationID>' does not have <permissionName> permission on object '<schemaName>'.'<objectName>'.
+Invalid database authorization property '<value>=<value>'.
+User(s) '<authorizationID>' must not be in both read-only and full-access authorization lists.
+Repeated user(s) '<listName>' in access list '<authorizationID>';
+Internal Error: invalid <authorizationID> id in statement permission list.
+Statement <value> can only be issued by database owner.
+PUBLIC is reserved and cannot be used as a user identifier or role name.
+Role <authorizationID> cannot be granted to <authorizationID> because this would create a circularity.
+Only the database owner can view this data.
+In an ALTER TABLE statement, the column '<columnName>' has been specified as NOT NULL and either the DEFAULT clause was not specified or was specified as DEFAULT NULL.
+ALTER TABLE statement cannot add an IDENTITY column to a table.
+The number of arguments for function '<functionName>' is incorrect.
+An invalid hexadecimal constant starting with '<number>' has been detected.
+All the arguments to the COALESCE/VALUE function cannot be parameters. The function needs at least one argument that is not a parameter.
+The length, precision, or scale attribute for column, or type mapping '<value>' is not valid.
+Multiple or conflicting keywords involving the '<clause>' clause are present.
+A check constraint or generated column that is defined with '<value>' is invalid.
+The name '<name>' is too long. The maximum length is '<number>'.
+Name '<name>' specified in context '<context>' is not unique.
+The number of values assigned is not the same as the number of specified or implied columns.
+An expression containing the column '<columnName>' appears in the SELECT list and is not part of a GROUP BY clause.
+The replacement value for '<value>' is invalid.
+The data type, length or value of arguments '<value>' and '<value>' is incompatible.
+Comparisons between '<type>' and '<type>' are not supported. Types must be comparable. String types must also have matching collation. If collation does not match, a possible solution is to cast operands to force them to the default collation (e.g. SELECT tablename FROM sys.systables WHERE CAST(tablename AS VARCHAR(128)) = 'T1')
+The floating point literal '<string>' contains more than 30 characters.
+Columns of type '<type>' cannot hold values of type '<type>'.
+An operand of LIKE is not a string, or the first operand is not a column.
+'<columnName>' cannot be a column of a primary key or unique key because it can contain null values.
+'<columnName>' cannot be a column of a primary key because it can contain null values.
+SET NULL cannot be specified because FOREIGN KEY '<key>' cannot contain null values.
+ALTER TABLE '<tableName>' specified attributes for column '<columnName>' that are not compatible with the existing column.
+Cannot convert types '<type>' to '<type>'.
+A qualified column name '<columnName>' is not allowed in the ORDER BY clause.
+The ORDER BY clause of a SELECT UNION statement only supports unqualified column references and column position numbers. Other expressions are not currently supported.
+The ORDER BY clause may not contain column '<columnName>', since the query specifies DISTINCT and that column does not appear in the query result.
+The ORDER BY clause may not specify an expression, since the query specifies DISTINCT.
+No authorized routine named '<routineName>' of type '<type>' having compatible arguments was found.
+'<value>' parameter '<value>' requires a parameter marker '?'.
+DEFAULT value or IDENTITY attribute value is not valid for column '<columnName>'.
+Only one identity column is allowed in a table.
+The qualifier for a declared global temporary table name must be SESSION.
+Invalid use of an aggregate function.
+The CREATE VIEW statement does not include a column list.
+The CREATE TABLE statement does not include a column list.
+Foreign Key '<key>' is invalid because '<value>'.
+Synonym '<synonym2>' cannot be created for '<synonym1>' as it would result in a circular synonym chain.
+An object cannot be created with the schema name '<schemaNamet>'.
+A role cannot be created with the name '<authorizationID>', the SYS prefix is reserved.
+Long column type column or parameter '<columnName>' not permitted in declared global temporary tables or procedure definitions.
+The requested function does not apply to global temporary tables.
+Syntax error: <error>.
+<value>.
+Column name '<columnName>' is in more than one table in the FROM list.
+Column '<columnName>' is either not in any table in the FROM list or appears within a join specification and is outside the scope of the join specification or appears in a HAVING clause and is not in the GROUP BY list. If this is a CREATE or ALTER TABLE statement then '<columnName>' is not a column in the target table.
+Table/View '<objectName>' does not exist.
+Too many result columns specified for table '<tableName>'.
+Null is only allowed in a VALUES clause within an INSERT statement.
+The constructor for class '<className>' cannot be used as an external virtual table because the class does not implement '<constructorName>'.
+The table or alias name '<tableName>' is used more than once in the FROM list.
+'<tableName>' is not an exposed table name in the scope in which it appears.
+Column name '<columnName>' appears more than once in the CREATE TABLE statement.
+Column name '<columnName>' appears more than once times in the column list of an INSERT statement.
+'<columnName>' is not a column in table or VTI '<value>'.
+Column name '<columnName>' appears in a statement without a FROM list.
+Column name '<columnName>' appears multiple times in the SET clause of an UPDATE statement.
+In the Properties list of a FROM clause, the value '<value>' is not valid as a joinOrder specification. Only the values FIXED and UNFIXED are valid.
+The WHERE or HAVING clause or CHECK CONSTRAINT definition is a '<value>' expression. It must be a BOOLEAN expression.
+Syntax error; integer literal expected.
+Cursor <cursorName> is not updatable.
+Column <columnName> is referenced in the HAVING clause but is not in the GROUP BY list.
+The '<functionName>' function is not allowed on the '<1>' type.
+The class '<className>' for column '<columnName>' does not exist or is inaccessible. This can happen if the class is not public.
+Delete table '<tableName>' is not target of cursor '<cursorName>'.
+Update table '<tableName>' is not the target of cursor '<cursorName>'.
+Cursor '<cursorName>' not found. Verify that autocommit is OFF.
+Column '<columnName>' is not in the FOR UPDATE list of cursor '<cursorName>'.
+The number of columns in the derived column list must match the number of columns in table '<tableName>'.
+The derived column list contains a duplicate column name '<columnName>'.
+There is a ? parameter in the select list. This is not allowed.
+It is not allowed for both operands of '<value>' to be ? parameters.
+The '<operator>' operator is not allowed to take a ? parameter as an operand.
+The unary '<operator>' operator is not allowed on the '<type>' type.
+'SELECT *' only allowed in EXISTS and NOT EXISTS subqueries.
+Subquery is only allowed to return a single column.
+A NOT statement has an operand that is not boolean . The operand of NOT must evaluate to TRUE, FALSE, or UNKNOWN.
+In the Properties clause of a FROM list, the property '<propertyName>' is not valid (the property was being set to '<value>').
+Correlation name not allowed for column '<columnName>' because it is part of the FOR UPDATE list.
+The ResultSetMetaData returned for the class/object '<className>' was null. In order to use this class as an external virtual table, the ResultSetMetaData cannot be null.
+Invalid length '<number>' in column specification.
+<type> is an invalid type for argument number <value> of <value>.
+There are multiple functions named '<functionName>'. Use the full signature or the specific name.
+There are multiple procedures named '<procedureName>'. Use the full signature or the specific name.
+Value '<value>' is not a valid precision for <value>.
+Value '<value>' is not a valid integer literal.
+No method was found that matched the method call <methodName>.<value>(<value>), tried all combinations of object and primitive types and any possible type conversion for any parameters the method call may have. The method might exist but it is not public and/or static, or the parameter types are not method invocation convertible.
+The class '<className>' does not exist or is inaccessible. This can happen if the class is not public.
+Calling method ('<methodName>') using a receiver of the Java primitive type '<type>' is not allowed.
+The LIKE predicate can only have 'CHAR' or 'VARCHAR' operands. Type '<type>' is not permitted.
+The Java method '<methodName>' has a ? as a receiver. This is not allowed.
+Table name '<value>' should be the same as '<tableName>'.
+The number of columns in the view column list does not match the number of columns in the underlying query expression in the view definition for '<value>'.
+The getColumnCount() for external virtual table '<tableName>' returned an invalid value '<value>'. Valid values are greater than or equal to 1.
+The number of columns on the left and right sides of the <tableName> must be the same.
+The number of columns in each VALUES constructor must be the same.
+Invalid value '<value>' for insertMode property specified for table '<tableName>'.
+Types '<type>' and '<type>' are not <value> compatible.
+'<value>' is not allowed in the '<schemaNamet>' schema.
+The USING clause did not return any results. No parameters can be set.
+In the Properties list, the invalid value '<value>' was specified for the useStatistics property. The only valid values are TRUE or FALSE.
+Index '<index>' does not exist.
+Column name '<columnName>' appears more than once in the CREATE INDEX statement.
+No field '<fieldName>' was found belonging to class '<className>'. It may be that the field exists, but it is not public, or that the class does not exist or is not public.
+It is not allowed to reference a field ('<fieldName>') using a referencing expression of the Java primitive type '<type>'.
+The number of columns in the table column list does not match the number of columns in the underlying query expression in the table definition for '<value>'.
+Invalid data type '<datatypeName>' for column '<columnName>'.
+No static field '<fieldName>' was found belonging to class '<className>'. The field might exist, but it is not public and/or static, or the class does not exist or the class is not public.
+Method resolution for signature <value>.<value>(<value>) was ambiguous. (No single maximally specific method.)
+Invalid CALL statement syntax.
+No constructor was found with the signature <value>(<value>). It may be that the parameter types are not method invocation convertible.
+At least one column, '<columnName>', in the primary key being added is nullable. All columns in a primary key must be non-nullable.
+Column position '<columnPosition>' is out of range for the query expression.
+Column '<columnName>' is not in the result of the query expression.
+Column name '<columnName>' appears more than once in the result of the query expression.
+VALUES clause must contain at least one element. Empty elements are not allowed.
+A query expression must return at least one column.
+The USING clause returned more than one row. Only single-row ResultSets are permissible.
+The constraints on column '<columnName>' require that it be both nullable and not nullable.
+Index '<index>' was created to enforce constraint '<constraintName>'. It can only be dropped by dropping the constraint.
+Constraint '<constraintName>'is required to be in the same schema as table '<tableName>'.
+ALTER TABLE failed. There is no constraint '<constraintName>' on table '<tableName>'.
+At least one result expression (THEN or ELSE) of the '<expression>' expression must not be a '?'.
+A conditional has a non-Boolean operand. The operand of a conditional must evaluate to TRUE, FALSE, or UNKNOWN.
+Types '<type>' and '<type>' are not type compatible. Neither type is assignable to the other type.
+More than one primary key constraint specified for table '<tableName>'.
+Constraint name '<constraintName>' appears more than once in the CREATE TABLE statement.
+Column name '<columnName>' appears more than once in a constraint's column list.
+Table '<tableName>' contains a constraint definition with column '<columnName>' which is not in the table.
+<value> '<value>' does not exist.
+The database class path contains an unknown jar file '<fileName>'.
+Parameters are not allowed in a VIEW definition.
+Parameters are not allowed in a TABLE definition.
+The generation clause for column '<columnName>' has data type '<datatypeName>', which cannot be assigned to the column's declared data type.
+The generation clause for column '<columnName>' contains an aggregate. This is not allowed.
+'<value>' cannot appear in a GENERATION CLAUSE because it may return unreliable results.
+You may not override the value of generated column '<columnName>'.
+The generation clause for column '<columnName>' references other generated columns. This is not allowed.
+Routine '<routineName>' may issue SQL and therefore cannot appear in a GENERATION CLAUSE.
+'<columnName>' is a generated column. It cannot be part of a foreign key whose referential action for DELETE is SET NULL or SET DEFAULT, or whose referential action for UPDATE is CASCADE.
+'<columnName>' is a generated column. You cannot change its default value.
+You cannot rename '<columnName>' because it is referenced by the generation clause of column '<columnName>'.
+Column '<columnName>' needs an explicit datatype. The datatype can be omitted only for columns with generation clauses.
+The NEW value of generated column '<columnName>' is mentioned in the BEFORE action of a trigger. This is not allowed.
+NOT NULL is allowed only if you explicitly declare a datatype.
+'INCREMENT BY' value can not be zero.
+'<argName>' value out of range of datatype '<datatypeName>'. Must be between '<minValue>' and '<maxValue>'.
+Invalid 'MINVALUE' value '<minValue>'. Must be smaller than 'MAXVALUE: <maxValue>'.
+Invalid 'START WITH' value '<startValue>'. Must be between '<minValue>' and '<maxValue>'.
+A NEXT VALUE FOR expression may not appear in many contexts, including WHERE, ON, HAVING, ORDER BY, DISTINCT, CASE, GENERATION, and AGGREGATE clauses as well as WINDOW functions and CHECK constraints.
+The statement references the following sequence more than once: '<sequenceName>'.
+The CREATE SEQUENCE statement has a redundant '<clauseName>' clause.
+Class '<className>' does not implement org.apache.derby.iapi.db.AggregateDefinition and thus cannot be used as an aggregate expression.
+Constraint '<constraintName>' is invalid.
+'<statement>' is not recognized as a function or procedure.
+'<statement>' is not recognized as a procedure.
+'<statement>' is not recognized as a function.
+Cannot create a procedure or function with EXTERNAL NAME '<name>' because it is not a list separated by periods. The expected format is <full java path>.<method name>.
+There is no Foreign Key named '<key>'.
+Schema '<schemaNamet>' does not exist
+Foreign key constraints are not allowed on system tables.
+Void methods are only allowed within a CALL statement.
+A table constructor that is not in an INSERT statement has all ? parameters in one of its columns. For each column, at least one of the rows must have a non-parameter.
+A join specification is required with the '<clauseName>' clause.
+The ON clause of a JOIN is a '<expressionType>' expression. It must be a BOOLEAN expression.
+Column name '<columnName>' appears more than once in the CREATE VIEW statement.
+No public static method '<methodName>' was found in class '<className>'. The method might exist, but it is not public, or it is not static.
+Aggregate <aggregateType> cannot operate on type <type>.
+Incorrect JDBC type info returned for column <colunmName>.
+View '<viewName>' is not updatable. (Views are currently not updatable.)
+'<tableName>' is a system table. Users are not allowed to modify the contents of this table.
+Aggregates are not allowed in the GROUP BY list.
+Parameters are not allowed in the trigger action.
+The SELECT list of a non-grouped query contains at least one invalid expression. When the SELECT list contains at least one aggregate then all entries must be valid aggregate expressions.
+The SELECT list of a grouped query contains at least one invalid expression. If a SELECT list has a GROUP BY, the list may only contain valid grouping expressions and valid aggregate expressions.
+Aggregator class '<className>' for aggregate '<aggregateName>' on type <type> does not implement org.apache.derby.iapi.sql.execute.ExecAggregator.
+Aggregate <aggregateName> contains one or more aggregates.
+Column name '<columnName>' matches more than one result column in table '<tableName>'.
+Column reference '<reference>' is invalid. When the SELECT list contains at least one aggregate then all entries must be valid aggregate expressions.
+Column reference '<reference>' is invalid, or is part of an invalid expression. For a SELECT list with a GROUP BY, the columns and expressions being selected may only contain valid grouping expressions and valid aggregate expressions.
+'<value>' is a Java primitive and cannot be used with this operator.
+insertMode = replace is not permitted on an insert where the target table, '<tableName>', is referenced in the SELECT.
+'<value>' may not appear in a CHECK CONSTRAINT definition because it may return non-deterministic results.
+'<value>' appears multiple times in the UPDATE OF column list for trigger '<triggerName>'.
+'<value>' cannot be directly invoked via EXECUTE STATEMENT because it is part of a trigger.
+Scale '<value>' is not a valid scale for a <scaleValue>.
+Scale '<scaleValue>' is not a valid scale with precision of '<precision>'.
+Invalid key '<key>' specified in the Properties list of a FROM list. The case-sensitive keys that are currently supported are '<key>'.
+VTI '<value>' cannot be bound because it is a special trigger VTI and this statement is not part of a trigger action or WHEN clause.
+Invalid Properties list in FROM list. There is no index '<index>' on table '<tableName>'.
+Invalid Properties list in FROM list. Either there is no named constraint '<constraintName>' on table '<tableName>' or the constraint does not have a backing index.
+Multiple values specified for property key '<key>'.
+Properties list for table '<tableName>' may contain values for index or for constraint but not both.
+'<value>' cannot be performed on '<value>' because it does not exist.
+Invalid join strategy '<strategyValue>' specified in Properties list on table '<tableName>'. The currently supported values for a join strategy are: 'hash' and 'nestedloop'.
+NumberFormatException occurred when converting value '<value>' for optimizer override '<value>'.
+Invalid value, '<value>', specified for hashInitialCapacity override. Value must be greater than 0.
+Invalid value, '<value>', specified for hashLoadFactor override. Value must be greater than 0.0 and less than or equal to 1.0.
+Invalid value, '<value>', specified for hashMaxCapacity override. Value must be greater than 0.
+'<statement>' is not allowed on '<viewName>' because it is a view.
+Hash join requires an optimizable equijoin predicate on a column in the selected index or heap. An optimizable equijoin predicate does not exist on any column in table or index '<index>'. Use the 'index' optimizer override to specify such an index or the heap on table '<tableName>'.
+bulkFetch value of '<value>' is invalid. The minimum value for bulkFetch is 1.
+bulkFetch is not permitted on '<joinType>' joins.
+bulkFetch is not permitted on updatable cursors.
+Schema '<schemaNamet>' cannot be dropped.
+No valid execution plan was found for this statement. This may have one of two causes: either you specified a hash join strategy when hash join is not allowed (no optimizable equijoin) or you are attempting to join two external virtual tables, each of which references the other, and so the statement cannot be evaluated.
+The user specified an illegal join order. This could be caused by a join column from an inner table being passed as a parameter to an external virtual table.
+System function or procedure '<procedureName>' cannot be dropped.
+System generated stored prepared statement '<statement>' that cannot be dropped using DROP STATEMENT. It is part of a trigger.
+An untyped null is not permitted as an argument to aggregate <aggregateName>. Please cast the null to a suitable type.
+'<value>' may not appear in a DEFAULT definition.
+The DEFAULT keyword is only allowed in a VALUES clause when the VALUES clause appears within an INSERT statement.
+FOR UPDATE is not permitted in this type of statement.
+The USING clause is not permitted in an EXECUTE STATEMENT for a trigger action.
+<triggerName> triggers may only reference <value> transition variables/tables.
+Illegal REFERENCING clause: only one name is permitted for each type of transition variable/table.
+An AND or OR has a non-boolean operand. The operands of AND and OR must evaluate to TRUE, FALSE, or UNKNOWN.
+The '<operatorName>' operator with a left operand type of '<operandType>' and a right operand type of '<operandType>' is not supported.
+Invalid escape character at line '<lineNumber>', column '<columnName>'.
+Multiple DISTINCT aggregates are not supported at this time.
+Aggregates are not permitted in the ON clause.
+Bulk insert replace is not permitted on '<value>' because it has an enabled trigger (<value>).
+Invalid type specified for column '<columnName>'. The type of a column may not be changed.
+Only columns of type VARCHAR, CLOB, and BLOB may have their length altered.
+Invalid length specified for column '<columnName>'. Length must be greater than the current column length.
+Column '<columnName>' is part of a foreign key constraint '<constraintName>'. To alter the length of this column, you should drop the constraint first, perform the ALTER TABLE, and then recreate the constraint.
+Column '<columnName>' is being referenced by at least one foreign key constraint '<constraintName>'. To alter the length of this column, you should drop referencing constraints, perform the ALTER TABLE and then recreate the constraints.
+Column '<columnName>' cannot be made nullable. It is part of a primary key or unique constraint, which cannot have any nullable columns.
+Column '<columnName>' cannot be made nullable. It is part of a primary key, which cannot have any nullable columns.
+Invalid increment specified for identity for column '<columnName>'. Increment cannot be zero.
+Invalid type specified for identity column '<columnName>'. The only valid types for identity columns are BIGINT, INT and SMALLINT.
+Attempt to modify an identity column '<columnName>'.
+Overflow occurred in identity value for column '<tableName>' in table '<columnName>'.
+INTERNAL ERROR identity counter. Update was called without arguments with current value \= NULL.
+A column, '<columnName>', with an identity default cannot be made nullable.
+A nullable column, '<columnName>', cannot be modified to have identity default.
+INTERNAL ERROR: Unable to generate code for <value>.
+INTERNAL ERROR: Type of activation to generate for node choice <value> is unknown.
+<value> not allowed unless database property <propertyName> has value '<value>'.
+Binding directly to an XML value is not allowed; try using XMLPARSE.
+XML values are not allowed in top-level result sets; try using XMLSERIALIZE.
+Missing SQL/XML keyword(s) '<keywords>' at line <lineNumber>, column <columnNumber>.
+Invalid target type for XMLSERIALIZE: '<typeName>'.
+XML feature not supported: '<featureName>'.
+XML query expression must be a string literal.
+Multiple XML context items are not allowed.
+Context item must have type 'XML'; '<value>' is not allowed.
+Unable to determine the parameter type for XMLPARSE; try using a CAST.
+Class '<className>' does not return an updatable ResultSet.
+subquery
+repeatable read
+Constraints '<constraintName>' and '<constraintName>' have the same set of columns, which is not allowed.
+Renaming column '<columnName>' will cause check constraint '<constraintName>' to break.
+String or Hex literal cannot exceed 64K.
+read uncommitted
+The external virtual table interface does not support BLOB or CLOB columns. '<value>' column '<value>'.
+Procedures that modify SQL data are not allowed in BEFORE triggers.
+'<statement>' statements are not allowed in '<triggerName>' triggers.
+Constraint '<constraintName>' is not a <value> constraint.
+Too many indexes (<index>) on the table <tableName>. The limit is <number>.
+Statement too complex. Try rewriting the query to remove complexity. Eliminating many duplicate expressions or breaking up the query and storing interim results in a temporary table can often help resolve this error.
+Invalid SQL in Batch: '<batch>'.
+Operand of LIKE predicate with type <type> and collation <value> is not compatable with LIKE pattern operand with type <type> and collation <value>.
+The table will have collation type <type> which is different than the collation of the schema <type> hence this operation is not supported .
+Parameter style DERBY_JDBC_RESULT_SET is only allowed for table functions.
+Table functions can only have parameter style DERBY_JDBC_RESULT_SET.
+XML is not allowed as the datatype of a column returned by a table function.
+'<schemaName>'.<functionName>' does not identify a table function.
+Class '<className>' implements VTICosting but does not provide a public, no-arg constructor.
+A scalar value is expected, not a row set returned by a table function.
+Window '<windowName>' is not defined.
+Only one window is supported.
+Window function is illegal in this context: '<clauseName>' clause
+There is no available conversion for the source code page, <codePage>, to the target code page, <codePage>. The connection has been terminated.
+Network protocol exception: only one of the VCM, VCS length can be greater than 0. The connection has been terminated.
+The connection was terminated because the encoding is not supported.
+Network protocol exception: actual code point, <value>, does not match expected code point, <value>. The connection has been terminated.
+Network protocol exception: DDM collection contains less than 4 bytes of data. The connection has been terminated.
+Network protocol exception: collection stack not empty at end of same id chain parse. The connection has been terminated.
+Network protocol exception: DSS length not 0 at end of same id chain parse. The connection has been terminated.
+Network protocol exception: DSS chained with same id at end of same id chain parse. The connection has been terminated.
+Network protocol exception: end of stream prematurely reached while reading InputStream, parameter #<value>. The connection has been terminated.
+Network protocol exception: invalid FDOCA LID. The connection has been terminated.
+Network protocol exception: SECTKN was not returned. The connection has been terminated.
+Network protocol exception: only one of NVCM, NVCS can be non-null. The connection has been terminated.
+Network protocol exception: SCLDTA length, <length>, is invalid for RDBNAM. The connection has been terminated.
+Network protocol exception: SCLDTA length, <length>, is invalid for RDBCOLID. The connection has been terminated.
+Network protocol exception: SCLDTA length, <length>, is invalid for PKGID. The connection has been terminated.
+Network protocol exception: PKGNAMCSN length, <length>, is invalid at SQLAM <value>. The connection has been terminated.
+A network protocol error was encountered. A connection could not be established because the manager <value> at level <value> is not supported by the server.
+The DDM command 0x<value> is not supported. The connection has been terminated.
+The DDM object 0x<value> is not supported. The connection has been terminated.
+The DDM parameter 0x<value> is not supported. The connection has been terminated.
+The DDM parameter value 0x<value> is not supported. An input host variable may not be within the range the server supports. The connection has been terminated.
+The select list mentions column '<columnName>' twice. This is not allowed in queries with GROUP BY or HAVING clauses. Try aliasing one of the conflicting columns to a unique name.
+Table '<tableName>' cannot be locked in '<mode>' mode.
+Invalid transaction state - held cursor requires same isolation level
+Table/View '<tableName>' does not exist.
+Cannot remove jar file '<fileName>' because it is on your derby.database.classpath '<fileName>'.
+Invalid column array length '<columnArrayLength>'. To return generated keys, column array must be of length 1 and contain only the identity column.
+Table '<tableName>' does not have an auto-generated column at column position '<columnPosition>'.
+Table '<tableName>' does not have an auto-generated column named '<columnName>'.
+The USING clause returned more than one row; only single-row ResultSets are permissible.
+The USING clause did not return any results so no parameters can be set.
+Jar file '<fileName>' does not exist in schema '<schemaNamet>'.
+An attempt was made to put a Java value of type '<type>' into a SQL value, but there is no corresponding SQL type. The Java value is probably the result of a method call or field access.
+A cursor with name '<cursorName>' already exists.
+The values for column '<location>' in index '<columnName>' and table '<indexName>.<schemaNamet>' do not match for row location <tableName>. The value in the index is '<value>', while the value in the base table is '<value>'. The full index key, including the row location, is '<indexKey>'. The suggested corrective action is to recreate the index.
+Inconsistency found between table '<tableName>' and index '<indexName>'. Error when trying to retrieve row location '<rowLocation>' from the table. The full index key, including the row location, is '<indexKey>'. The suggested corrective action is to recreate the index.
+Got IOException '<value>'.
+Columns of type '<type>' may not be used in CREATE INDEX, ORDER BY, GROUP BY, UNION, INTERSECT, EXCEPT or DISTINCT statements because comparisons are not supported for that type.
+<value> '<value>' does not exist.
+Index '<indexName>' was not created because '<indexType>' is not a valid index type.
+0 is an invalid parameter value for ResultSet.absolute(int row).
+ResultSet.relative(int row) cannot be called when the cursor is not positioned on a row.
+Operation '<operationName>' cannot be performed on object '<objectName>' because there is an open ResultSet dependent on that object.
+Index '<indexName>' does not exist.
+'<value>' is not a view. If it is a table, then use DROP TABLE instead.
+Operation '<operationName>' cannot be performed on object '<objectName>' because VIEW '<viewName>' is dependent on that object.
+Operation '<operationName>' cannot be performed on object '<objectName>' because STATEMENT '<statement>' is dependent on that object.
+Operation '<operationName>' cannot be performed on object '<objectName>' because <value> '<value>' is dependent on that object.
+Index '<indexName>' is required to be in the same schema as table '<tableName>'.
+Index '<indexName>' cannot be created on system table '<tableName>'. Users cannot create indexes on system tables.
+Operation '<operationName>' cannot be performed on object '<objectName>' because TABLE '<tableName>' is dependent on that object.
+Operation '<operationName>' cannot be performed on object '<objectName>' because ROUTINE '<routineName>' is dependent on that object.
+<value> '<value>' already exists in <value> '<value>'.
+Cannot create index '<indexName>' because table '<tableName>' does not exist.
+Constraint '<constraintName>' is invalid because the referenced table <tableName> has no primary key. Either add a primary key to <tableName> or explicitly specify the columns of a unique constraint that this foreign key references.
+Constraint '<constraintName>' is invalid: the types of the foreign key columns do not match the types of the referenced columns.
+Constraint '<constraintName>' is invalid: the number of columns in <constraintName> (<value>) does not match the number of columns in the referenced key (<value>).
+Constraint '<constraintName>' is invalid: there is no unique or primary key constraint on table '<tableName>' that matches the number and types of the columns in the foreign key.
+Foreign key constraint '<constraintName>' cannot be added to or enabled on table <tableName> because one or more foreign keys do not have matching referenced keys.
+Constraint '<constraintName>' is invalid: referenced table <tableName> does not exist.
+Schema '<schemaNamet>' cannot be dropped because it is not empty.
+The number of rows in the base table does not match the number of rows in at least 1 of the indexes on the table. Index '<indexName>' on table '<schemaNamet>.<tableName>' has <number> rows, but the base table has <number> rows. The suggested corrective action is to recreate the index.
+'<value>' is not allowed on the System table '<tableName>'.
+A non-nullable column cannot be added to table '<tableName>' because the table contains at least one row. Non-nullable columns can only be added to empty tables.
+Attempt to add a primary key constraint to table '<tableName>' failed because the table already has a constraint of that type. A table can only have a single primary key constraint.
+Attempt to add or enable constraint(s) on table '<rowName>' failed because the table contains <constraintName> row(s) that violate the following check constraint(s): <tableName>.
+The command on table '<tableName>' failed because null data was found in the primary key or unique constraint/index column(s). All columns in a primary or unique index key must not be null.
+The command on table '<tableName>' failed because null data was found in the primary key/index column(s). All columns in a primary key must not be null.
+Cannot issue commit in a nested connection when there is a pending operation in the parent connection.
+Cannot issue rollback in a nested connection when there is a pending operation in the parent connection.
+<value> '<value>' already exists.
+<triggerName> is not supported in trigger <value>.
+INSERT, UPDATE and DELETE are not permitted on table <triggerName> because trigger <tableName> is active.
+Transaction manipulation such as SET ISOLATION is not permitted because trigger <triggerName> is active.
+Bulk insert replace is not permitted on '<value>' because it has an enabled trigger (<value>).
+Cannot issue set transaction isolation statement on a global transaction that is in progress because it would have implicitly committed the global transaction.
+Statement.executeQuery() cannot be called with a statement that returns a row count.
+<value>.executeQuery() cannot be called because multiple result sets were returned. Use <value>.execute() to obtain multiple results.
+<value>.executeQuery() was called but no result set was returned. Use <value>.executeUpdate() for non-queries.
+Statement.executeUpdate() cannot be called with a statement that returns a ResultSet.
+ALTER table '<tableName>' failed. Null data found in column '<columnName>'.
+WARNING: While deleting a row from a table the index row for base table row <rowName> was not found in index with conglomerate id <id>. This problem has automatically been corrected as part of the delete operation.
+Too much contention on sequence <sequenceName>.
+Derby could not obtain the locks needed to release the unused, preallocated values for the sequence '<sequenceName>'. As a result, unexpected gaps may appear in this sequence.
+Cannot create new object with key <cache> in <key> cache. The object already exists in the cache.
+Java linkage error thrown during load of generated class <className>.
+Cannot create an instance of generated class <className>.
+Method <className>() does not exist in generated class <methodName>.
+Java class file format limit(s) exceeded: <className> in generated class <value>.
+Exception from Cryptography provider. See next exception for details.
+Initializing cipher with illegal mode, must be either ENCRYPT or DECRYPT.
+Initializing cipher with a boot password that is too short. The password must be at least <number> characters long.
+Cannot change boot password to null.
+Cannot change boot password to a non-string serializable type.
+Wrong format for changing boot password. Format must be : old_boot_password, new_boot_password.
+Cannot change boot password for a non-encrypted database.
+Cannot change boot password for a read-only database.
+Wrong boot password.
+Bad encryption padding '<value>' or padding not specified. 'NoPadding' must be used.
+Encryption algorithm '<algorithmName>' does not exist. Please check that the chosen provider '<providerName>' supports this algorithm.
+The encryption algorithm cannot be changed after the database is created.
+The encryption provider cannot be changed after the database is created.
+The class '<className>' representing the encryption provider cannot be found.
+The encryption provider '<providerName>' does not exist.
+The encryptionAlgorithm '<algorithmName>' is not in the correct format. The correct format is algorithm/feedbackMode/NoPadding.
+The feedback mode '<mode>' is not supported. Supported feedback modes are CBC, CFB, OFB and ECB.
+The application is using a version of the Java Cryptography Extension (JCE) earlier than 1.2.1. Please upgrade to JCE 1.2.1 and try the operation again.
+The given encryption key does not match the encryption key used when creating the database. Please ensure that you are using the correct encryption key and try again.
+The verification process for the encryption key was not successful. This could have been caused by an error when accessing the appropriate file to do the verification process. See next exception for details.
+The length of the external encryption key must be an even number.
+The external encryption key contains one or more illegal characters. Allowed characters for a hexadecimal number are 0-9, a-f and A-F.
+Cannot encrypt the database when there is a global transaction in the prepared state.
+Cannot re-encrypt the database with a new boot password or an external encryption key when there is a global transaction in the prepared state.
+Cannot configure a read-only database for encryption.
+Cannot re-encrypt a read-only database with a new boot password or an external encryption key .
+Cannot configure a database for encryption, when database is in the log archive mode.
+Cannot re-encrypt a database with a new boot password or an external encryption key, when database is in the log archive mode.
+Encryption of an un-encrypted database failed: <failureMessage>
+Encryption of an encrypted database with a new key or a new password failed: <failureMessage>
+The message digest algorithm '<algorithmName>' is not supported by any of the available cryptography providers. Please install a cryptography provider that supports that algorithm, or specify another algorithm in the derby.authentication.builtin.algorithm property.
+Startup failed due to an exception. See next exception for details.
+Startup failed due to missing functionality for <value>. Please ensure your classpath includes the correct Derby software.
+Startup failed due to missing product version information for <value>.
+Startup failed. An encrypted database cannot be accessed without the correct boot password.
+Startup failed. Boot password must be at least 8 bytes long.
+Could not instantiate <value> StorageFactory class <value>.
+The database directory '<directoryName>' exists. However, it does not contain the expected '<servicePropertiesName>' file. Perhaps Derby was brought down in the middle of creating this database. You may want to delete this directory and try creating the database again.
+Failed to start encryption engine. Please make sure you are running Java 2 and have downloaded an encryption provider such as jce and put it in your class path.
+Directory <directoryName> cannot be created.
+Directory <directoryName> cannot be removed.
+Directory <directoryName> already exists.
+Unknown sub-protocol for database name <databaseName>.
+Specified authentication scheme class <className> does implement the authentication interface <interfaceName>.
+Error creating instance of authentication scheme class <className>.
+JDBC Driver registration with java.sql.DriverManager failed. See next exception for details.
+Service provider is read-only. Operation not permitted.
+File <fileName> not found. Please make sure that backup copy is the correct one and it is not corrupted.
+Unable to remove File <fileName>.
+Unable to rename file '<fileName>' to '<fileName>'
+Ambiguous sub-protocol for database name <databaseName>.
+No class was registered for identifier <identifierName>.
+An exception was thrown while loading class <identifierName> registered for identifier <className>.
+An exception was thrown while creating an instance of class <identifierName> registered for identifier <className>.
+Supplied territory description '<value>' is invalid, expecting ln[_CO[_variant]] ln=lower-case two-letter ISO-639 language code, CO=upper-case two-letter ISO-3166 country codes, see java.util.Locale.
+Supplied value '<value>' for collation attribute is invalid, expecting UCS_BASIC or TERRITORY_BASED.
+Collator support not available from the JVM for the database's locale '<value>'.
+Backup database directory <directoryName> not found. Please make sure that the specified backup path is right.
+Unable to copy file '<fileName>' to '<fileName>'. Please make sure that there is enough space and permissions are correct.
+Result set does not return rows. Operation <operationName> not permitted.
+Activation closed, operation <operationName> not permitted.
+Cursor '<cursorName>' is closed. Verify that autocommit is OFF.
+Cursor '<cursorName>' is not on a row.
+An Activation was passed to the '<methodName>' method that does not match the PreparedStatement.
+A PreparedStatement has been recompiled and the parameters have changed. If you are using JDBC you must prepare the statement again.
+An attempt was made to put a data value of type '<datatypeName>' into a data value of type '<datatypeName>'.
+The parameter position '<parameterPosition>' is out of range. The number of parameters for this prepared statement is '<number>'.
+The column position '<columnPosition>' is out of range. The number of columns for this ResultSet is '<number>'.
+A ClassCastException occurred when calling the compareTo() method on an object '<object>'. The parameter to compareTo() is of class '<className>'.
+ResultSet not open. Operation '<operation>' not permitted. Verify that autocommit is OFF.
+Stream or LOB value cannot be retrieved more than once
+Missing row in table '<tableName>' for key '<key>'.
+Catalogs at version level '<versionNumber>' cannot be upgraded to version level '<versionNumber>'.
+You are trying to execute a Data Definition statement (CREATE, DROP, or ALTER) while preparing a different statement. This is not allowed. It can happen if you execute a Data Definition statement from within a static initializer of a Java class that is being used from within a SQL statement.
+Parameter <parameterName> cannot be registered as an OUT parameter because it is an IN parameter.
+SQL type number '<type>' is not a supported type by registerOutParameter().
+Parameter <parameterName> appears to be an output parameter, but it has not been so designated by registerOutParameter(). If it is not an output parameter, then it has to be set to type <type>.
+Parameter <parameterName> cannot be registered to be of type <type> because it maps to type <type> and they are incompatible.
+Parameter <parameterName> is not an output parameter.
+Return output parameters cannot be set.
+An IOException was thrown when reading a '<value>' from an InputStream.
+Statement closed.
+The table cannot be defined as a dependent of table <tableName> because of delete rule restrictions. (The relationship is self-referencing and a self-referencing relationship already exists with the SET NULL delete rule.)
+The table cannot be defined as a dependent of table <tableName> because of delete rule restrictions. (The relationship forms a cycle of two or more tables that cause the table to be delete-connected to itself (all other delete rules in the cycle would be CASCADE)).
+The table cannot be defined as a dependent of table <tableName> because of delete rule restrictions. (The relationship causes the table to be delete-connected to the indicated table through multiple relationships and the delete rule of the existing relationship is SET NULL.).
+The delete rule of foreign key must be <value>. (The referential constraint is self-referencing and an existing self-referencing constraint has the indicated delete rule (NO ACTION, RESTRICT or CASCADE).)
+The delete rule of foreign key must be <value>. (The referential constraint is self-referencing and the table is dependent in a relationship with a delete rule of CASCADE.)
+the delete rule of foreign key must be <ruleName>. (The relationship would cause the table to be delete-connected to the same table through multiple relationships and such relationships must have the same delete rule (NO ACTION, RESTRICT or CASCADE).)
+The delete rule of foreign key cannot be CASCADE. (A self-referencing constraint exists with a delete rule of SET NULL, NO ACTION or RESTRICT.)
+The delete rule of foreign key cannot be CASCADE. (The relationship would form a cycle that would cause a table to be delete-connected to itself. One of the existing delete rules in the cycle is not CASCADE, so this relationship may be definable if the delete rule is not CASCADE.)
+the delete rule of foreign key can not be CASCADE. (The relationship would cause another table to be delete-connected to the same table through multiple paths with different delete rules or with delete rule equal to SET NULL.)
+CASCADE
+SET NULL
+RESTRICT
+NO ACTION
+SET DEFAULT
+Use of '<value>' requires database to be upgraded from version <versionNumber> to version <versionNumber> or later.
+TRUNCATE TABLE is not permitted on '<value>' because unique/primary key constraints on this table are referenced by enabled foreign key constraints from other tables.
+TRUNCATE TABLE is not permitted on '<value>' because it has an enabled DELETE trigger (<value>).
+Upgrading the database from a previous version is not supported. The database being accessed is at version level '<versionNumber>', this software is at version level '<versionNumber>'.
+The requested function can not reference tables in SESSION schema.
+The statement has been cancelled or timed out.
+Stream is closed
+Result set does not return rows. Operation <operationName> not permitted.
+Activation closed, operation <operationName> not permitted.
+Cursor '<cursorName>' is closed. Verify that autocommit is OFF.
+Cursor '<cursorName>' is not on a row.
+An Activation was passed to the '<methodName>' method that does not match the PreparedStatement.
+A PreparedStatement has been recompiled and the parameters have changed. If you are using JDBC you must prepare the statement again.
+An attempt was made to put a data value of type '<datatypeName>' into a data value of type '<datatypeName>'.
+The parameter position '<parameterPosition>' is out of range. The number of parameters for this prepared statement is '<number>'.
+The column position '<columnPosition>' is out of range. The number of columns for this ResultSet is '<number>'.
+A ClassCastException occurred when calling the compareTo() method on an object '<object>'. The parameter to compareTo() is of class '<className>'.
+ResultSet not open. Operation '<operation>' not permitted. Verify that autocommit is OFF.
+Stream or LOB value cannot be retrieved more than once
+Missing row in table '<tableName>' for key '<key>'.
+Catalogs at version level '<versionNumber>' cannot be upgraded to version level '<versionNumber>'.
+You are trying to execute a Data Definition statement (CREATE, DROP, or ALTER) while preparing a different statement. This is not allowed. It can happen if you execute a Data Definition statement from within a static initializer of a Java class that is being used from within a SQL statement.
+Parameter <parameterName> cannot be registered as an OUT parameter because it is an IN parameter.
+SQL type number '<type>' is not a supported type by registerOutParameter().
+Parameter <parameterName> appears to be an output parameter, but it has not been so designated by registerOutParameter(). If it is not an output parameter, then it has to be set to type <type>.
+Parameter <parameterName> cannot be registered to be of type <type> because it maps to type <type> and they are incompatible.
+Parameter <parameterName> is not an output parameter.
+Return output parameters cannot be set.
+An IOException was thrown when reading a '<value>' from an InputStream.
+Statement closed.
+The table cannot be defined as a dependent of table <tableName> because of delete rule restrictions. (The relationship is self-referencing and a self-referencing relationship already exists with the SET NULL delete rule.)
+The table cannot be defined as a dependent of table <tableName> because of delete rule restrictions. (The relationship forms a cycle of two or more tables that cause the table to be delete-connected to itself (all other delete rules in the cycle would be CASCADE)).
+The table cannot be defined as a dependent of table <tableName> because of delete rule restrictions. (The relationship causes the table to be delete-connected to the indicated table through multiple relationships and the delete rule of the existing relationship is SET NULL.).
+The delete rule of foreign key must be <value>. (The referential constraint is self-referencing and an existing self-referencing constraint has the indicated delete rule (NO ACTION, RESTRICT or CASCADE).)
+The delete rule of foreign key must be <value>. (The referential constraint is self-referencing and the table is dependent in a relationship with a delete rule of CASCADE.)
+the delete rule of foreign key must be <ruleName>. (The relationship would cause the table to be delete-connected to the same table through multiple relationships and such relationships must have the same delete rule (NO ACTION, RESTRICT or CASCADE).)
+The delete rule of foreign key cannot be CASCADE. (A self-referencing constraint exists with a delete rule of SET NULL, NO ACTION or RESTRICT.)
+The delete rule of foreign key cannot be CASCADE. (The relationship would form a cycle that would cause a table to be delete-connected to itself. One of the existing delete rules in the cycle is not CASCADE, so this relationship may be definable if the delete rule is not CASCADE.)
+the delete rule of foreign key can not be CASCADE. (The relationship would cause another table to be delete-connected to the same table through multiple paths with different delete rules or with delete rule equal to SET NULL.)
+CASCADE
+SET NULL
+RESTRICT
+NO ACTION
+SET DEFAULT
+Use of '<value>' requires database to be upgraded from version <versionNumber> to version <versionNumber> or later.
+TRUNCATE TABLE is not permitted on '<value>' because unique/primary key constraints on this table are referenced by enabled foreign key constraints from other tables.
+TRUNCATE TABLE is not permitted on '<value>' because it has an enabled DELETE trigger (<value>).
+Upgrading the database from a previous version is not supported. The database being accessed is at version level '<versionNumber>', this software is at version level '<versionNumber>'.
+The requested function can not reference tables in SESSION schema.
+The statement has been cancelled or timed out.
+Stream is closed
+Unsupported upgrade from '<value>' to '<value>'.
+Invalid identifier.
+Invalid database classpath: '<classpath>'.
+Invalid id list.
+You are trying to do an operation that uses the territory of the database, but the database does not have a territory.
+Invalid value for property '<value>'='<value>'.
+The requested property change is not supported '<value>'='<value>'.
+Required property '<propertyName>' has not been set.
+Invalid syntax for optimizer overrides. The syntax should be -- DERBY-PROPERTIES propertyName = value [, propertyName = value]*
+Unknown permission '<permissionName>'.
+Unknown user '<authorizationID>'.
+Invalid parameter '<value>'='<value>'.
+Unable to restore dependency from disk. DependableFinder = '<value>'. Further information: '<value>'.
+Unable to store dependencies.
+Connection was null.
+Data found on line <lineNumber> for column <columnName> after the stop delimiter.
+Data file not found: <fileName>
+Data file cannot be null.
+Entity name was null.
+Field and record separators cannot be substrings of each other.
+There is no column named: <columnName>.
+The total number of columns in the row is: <number>.
+Column '<columnName>' in the table is of type <type>, it is not supported by the import/export feature.
+Cannot find the record separator on line <lineNumber>.
+Read endOfFile at unexpected place on line <lineNumber>.
+An IOException occurred while writing data to the file.
+A delimiter is not valid or is used more than once.
+The period was specified as a character string delimiter.
+Table '<tableName>' does not exist.
+An invalid hexadecimal string '<hexString>' detected in the import file.
+Lob data file <fileName> referenced in the import file not found.
+Lob data file name cannot be null.
+Import error on line <lineNumber> of file <fileName>: <details>
+The export operation was not performed, because the specified output file (<fileName>) already exists. Export processing will not overwrite an existing file, even if the process has permissions to write to that file, due to security concerns, and to avoid accidental file damage. Please either change the output file name in the export procedure arguments to specify a file which does not exist, or delete the existing file, then retry the export operation.
+The export operation was not performed, because the specified large object auxiliary file (<fileName>) already exists. Export processing will not overwrite an existing file, even if the process has permissions to write to that file, due to security concerns, and to avoid accidental file damage. Please either change the large object auxiliary file name in the export procedure arguments to specify a file which does not exist, or delete the existing file, then retry the export operation.
+Database '<databaseName>' not found.
+Cannot rollback or release a savepoint when in auto-commit mode.
+Use of CallableStatement required for stored procedure call or use of output parameters: <value>
+Cannot issue savepoint when autoCommit is on.
+Cannot pass null for savepoint name.
+'<value>' already closed.
+No ID for named savepoints.
+No name for un-named savepoints.
+Derby system shutdown.
+Method '<methodName>' not allowed on prepared statement.
+No savepoint command allowed inside the trigger code.
+Column name cannot be null.
+Object type not convertible to TYPE '<typeName>', invalid java.sql.Types value, or object was null.
+Type is not supported.
+Unable to set stream: '<name>'.
+Input stream did not have exact amount of data as the requested length.
+Input stream cannot have negative length.
+The URL '<urlValue>' is not properly formed.
+Cannot set AUTOCOMMIT ON when in a nested connection.
+Failed to start database '<databaseName>' with class loader <classLoader>, see the next exception for details.
+Failed to create database '<databaseName>', see the next exception for details.
+'<value>' is not a valid value for property '<propertyName>'.
+'<value>' is an invalid scale.
+Invalid or (currently) unsupported isolation level, '<levelName>', passed to Connection.setTransactionIsolation(). The currently supported values are java.sql.Connection.TRANSACTION_SERIALIZABLE, java.sql.Connection.TRANSACTION_REPEATABLE_READ, java.sql.Connection.TRANSACTION_READ_COMMITTED, and java.sql.Connection.TRANSACTION_READ_UNCOMMITTED.
+Conflicting boot attributes specified: <attributes>
+Conflicting create attributes specified.
+Batch cannot contain a command that attempts to return a result set.
+CallableStatement batch cannot contain output parameters.
+Cannot set AUTOCOMMIT ON when in an XA connection.
+Cannot commit a global transaction using the Connection, commit processing must go thru XAResource interface.
+Cannot rollback a global transaction using the Connection, commit processing must go thru XAResource interface.
+Cannot close a connection while a global transaction is still active.
+JDBC attribute '<attributeName>' has an invalid value '<value>', valid values are '<value>'.
+Cannot set holdability ResultSet.HOLD_CURSORS_OVER_COMMIT for a global transaction.
+The '<methodName>' method is only allowed on scroll cursors.
+Invalid parameter value '<value>' for ResultSet.setFetchSize(int rows).
+Invalid parameter value '<value>' for Statement.setMaxRows(int maxRows). Parameter value must be >= 0.
+Invalid parameter value '<value>' for setFetchDirection(int direction).
+Invalid parameter value '<value>' for Statement.setFetchSize(int rows).
+Invalid parameter value '<value>' for Statement.setMaxFieldSize(int max).
+SQL text pointer is null.
+Only executeBatch and clearBatch allowed in the middle of a batch.
+No SetXXX methods allowed in case of USING execute statement.
+Negative or zero position argument '<argument>' passed in a Blob or Clob method.
+Negative length argument '<argument>' passed in a BLOB or CLOB method.
+Null pattern or searchStr passed in to a BLOB or CLOB position method.
+The data in this BLOB or CLOB is no longer available. The BLOB/CLOB's transaction may be committed, its connection closed or it has been freed.
+Invalid parameter value '<value>' for Statement.setQueryTimeout(int seconds).
+The position argument '<positionArgument>' exceeds the size of the BLOB/CLOB.
+Got an exception when trying to read the first byte/character of the BLOB/CLOB pattern using getBytes/getSubString.
+Offset '<value>' is either less than zero or is too large for the current BLOB/CLOB.
+The length specified '<number>' exceeds the size of the BLOB/CLOB.
+USING execute statement passed <number> parameters rather than <number>.
+Conflicting create/restore/recovery attributes specified.
+Invalid value '<value>' passed as parameter '<parameterName>' to method '<methodName>'
+Stream has already been read and end-of-file reached and cannot be re-used.
+This method cannot be invoked while the cursor is not on the insert row or if the concurrency of this ResultSet object is CONCUR_READ_ONLY.
+Sum of position('<pos>') and length('<length>') is greater than the size of the LOB plus one.
+Invalid operation: wasNull() called with no data retrieved.
+Invalid parameter: calendar is null.
+Invalid argument: parameter index <indexNumber> is not an OUT or INOUT parameter.
+Length of BLOB/CLOB, <number>, is too large. The length cannot exceed <number>.
+This object is already closed.
+An attempt to execute a privileged action failed.
+A resource bundle could not be found in the <packageName> package for <value>
+Cannot rollback or release a savepoint that was not created by this connection.
+The auto-generated keys value <value> is invalid
+The Reader/Stream object does not contain length characters
+The scale supplied by the registerOutParameter method does not match with the setter method. Possible loss of precision!
+Table name can not be null
+Shared key length is invalid: <value>.
+DES key has the wrong length, expected length <number>, got length <number>.
+No such padding
+Bad Padding
+Illegal Block Size
+Primary table name can not be null
+Foreign table name can not be null
+Security exception encountered, see next exception for details.
+Unable to open file <fileName> : <error>
+Invalid cursor name '<cursorName>'
+Unable to open resultSet with requested holdability <value>.
+No more than <number> commands may be added to a single batch.
+Batching of queries not allowed by J2EE compliance.
+Query batch requested on a non-query statement.
+Invalid operation at current cursor position.
+No updateXXX methods were called on this row.
+This method must be called to update values in the current row or the insert row.
+Column not updatable.
+This method should only be called on ResultSet objects that are scrollable (type TYPE_SCROLL_INSENSITIVE).
+This method should not be called on sensitive dynamic cursors.
+Unable to unwrap for '<value>'
+Exceeded maximum number of sections <value>
+Invalid cursor name '<cursorName>'.
+Cursor name '<cursorName>' is already in use
+Unable to open result set with requested holdability <holdValue>.
+SQL text '<value>' has no tokens.
+executeQuery method can not be used for update.
+Non-atomic batch failure. The batch was submitted, but at least one exception occurred on an individual member of the batch. Use getNextException() to retrieve the exceptions for specific batched elements.
+The required stored procedure is not installed on the server.
+The load module name for the stored procedure on the server is not found.
+Non-recoverable chain-breaking exception occurred during batch processing. The batch is terminated non-atomically.
+Invalid attribute syntax: <attributeSyntax>
+The traceLevel connection property does not have a valid format for a number.
+An IO Error occurred when calling free() on a CLOB or BLOB.
+You cannot invoke other java.sql.Clob/java.sql.Blob methods after calling the free() method or after the Blob/Clob's transaction has been committed or rolled back.
+The length of this BLOB/CLOB is not available yet. When a BLOB or CLOB is accessed as a stream, the length is not available until the entire stream has been processed.
+The locator that was supplied for this CLOB/BLOB is invalid
+The security policy could not be reloaded: <reason>
+Connection reset is not allowed when inside a unit of work.
+Query processing has been terminated due to an error on the server.
+Error obtaining length of BLOB/CLOB object, exception follows.
+Procedure name can not be null.
+Procedure name length <number> is not within the valid range of 1 to <number>.
+On <operatingSystemName> platforms, XA supports version <versionNumber> and above, this is version <versionNumber>
+Invalid scroll orientation.
+Encountered an Exception while reading from the stream specified by parameter #<value>. The remaining data expected by the server has been filled with 0x0. The Exception had this message: <messageText>.
+Network protocol error: the specified size of the InputStream, parameter #<value>, is less than the actual InputStream length.
+Encountered an Exception while trying to verify the length of the stream specified by parameter #<value>. The Exception had this message: <messageText>.
+End of stream prematurely reached while reading the stream specified by parameter #<value>. The remaining data expected by the server has been filled with 0x0.
+Network protocol error: the specified size of the Reader, parameter #<value>, is less than the actual InputStream length.
+Error executing a <value>, server returned <value>.
+Error marshalling or unmarshalling a user defined type: <messageDetail>
+An object of type <sourceClassName> cannot be cast to an object of type <targetClassName>.
+This LogFactory module does not support replicatiosn.
+The log received from the master is corrupted.
+Master and Slave at different versions. Unable to proceed with Replication.
+Unexpected replication error. See derby.log for details.
+Could not establish a connection to the peer of the replicated database '<dbname>' on address '<hostname>:<portname>'.
+Connection lost for replicated database '<dbname>'.
+The log files on the master and slave are not in synch for replicated database '<dbname>'. The master log instant is <masterfile>:<masteroffset>, whereas the slave log instant is <slavefile>:<slaveoffset>. This is FATAL for replication - replication will be stopped.
+The connection attempts to the replication slave for the database <dbname> exceeded the specified timeout period.
+Could not perform operation because the database is not in replication master mode.
+Replication slave mode started successfully for database '<dbname>'. Connection refused because the database is in replication slave mode.
+Cannot start replication slave mode for database '<dbname>'. The database has already been booted.
+Conflicting attributes specified. See reference manual for attributes allowed in combination with replication attribute '<attribute>'.
+Could not perform operation '<command>' because the database '<dbname>' has not been booted.
+Replication network protocol error for database '<dbname>'. Expected message type '<expectedtype>', but received type '<receivedtype>'.
+Failover performed successfully for database '<dbname>', the database has been shutdown.
+Error occurred while performing failover for database '<dbname>', Failover attempt was aborted.
+Replication master has already been booted for database '<dbname>'
+Replication master cannot be started since unlogged operations are in progress, unfreeze to allow unlogged operations to complete and restart replication
+Could not perform operation because the database is not in replication slave mode.
+Replication operation 'failover' or 'stopSlave' refused on the slave database because the connection with the master is working. Issue the 'failover' or 'stopMaster' operation on the master database instead.
+Replicated database '<dbname>' shutdown.
+Unexpected error when trying to stop replication slave mode. To stop repliation slave mode, use operation 'stopSlave' or 'failover'.
+The conglomerate (<value>) requested does not exist.
+Feature not implemented.
+Exception encountered while trying to boot module for '<value>'.
+There is no index or conglomerate with conglom id '<conglomID>' to drop.
+There is no index or conglomerate with conglom id '<conglomID>'.
+There is no sort called '<sortName>'.
+Scan must be opened and positioned by calling next() before making other calls.
+Record <containerName> on page <pageNumber> in container <recordNumber> not found.
+A scan controller interface method was called which is not appropriate for a scan on a sort.
+An attempt was made to fetch a row before the beginning of a sort or after the end of a sort.
+The type of a row inserted into a sort does not match the sort's template.
+Could not acquire resources for sort.
+XA protocol violation.
+An attempt was made to start a global transaction with an Xid of an existing global transaction.
+Could not create container.
+Container <containerName> not found.
+The required property <propertyName> not found in the property list given to createConglomerate() for a btree secondary index.
+Unimplemented feature.
+A method on a btree open scan has been called prior to positioning the scan on the first row (i.e. no next() call has been made yet). The current state of the scan is (<value>).
+During logical undo of a btree insert or delete the row could not be found in the tree.
+Limitation: Record of a btree secondary index cannot be updated or inserted due to lack of space on the page. Use the parameters derby.storage.pageSize and/or derby.storage.pageReservedSpace to work around this limitation.
+An internal error was encountered during a btree scan - current_rh is null = <value>, position key is null = <value>.
+The btree conglomerate <value> is closed.
+Reserved for testing.
+Could not create a template.
+Could not create container.
+Container <containerName> not found.
+Conglomerate could not be created.
+In a base table there was a mismatch between the requested column number <number> and the maximum number of columns <number>.
+The heap container with container id <containerID> is closed.
+The scan is not positioned.
+The feature is not implemented.
+An attempt was made to access an out of range slot on a page
+An attempt was made to update a deleted record
+Limitation: Record cannot be updated or inserted due to lack of space on the page. Use the parameters derby.storage.pageSize and/or derby.storage.pageReservedSpace to work around this limitation.
+An unexpected exception was thrown
+An attempt was made to undelete a record that is not deleted
+Column <columnName> of row is null, it needs to be set to point to an object.
+Restore of a serializable or SQLData object of class <className>, attempted to read more data than was originally stored
+Exception during restore of a serializable or SQLData object of class <className>
+Class not found during restore of a serializable or SQLData object of class <className>
+Illegal time stamp <value>, either time stamp is from a different page or of incompatible implementation
+cannot set a null time stamp
+Attempt to move either rows or pages from one container to another.
+Attempt to move zero rows from one page to another.
+Can only make a record handle for special record handle id.
+Using special record handle as if it were a normal record handle.
+The allocation nested top transaction cannot open the container.
+Page <page> being removed is already locked for deallocation.
+Exception during write of a serializable or SQLData object
+Wrong page is gotten for record handle <value>.
+Record handle <value> unexpectedly points to overflow page.
+Exception during restore of a SQLData object of class <className>. The specified class cannot be instantiated.
+Exception during restore of a SQLData object of class <className>. The specified class encountered an illegal access exception.
+Internal error: page <pageNumber> attempted latched twice.
+Unexpected exception on in-memory page <page>
+Unknown page format at page <page>
+Unknown container format at container <containerName> : <value>
+Container information cannot change once written: was <value>, now <value>
+Page <page> is at version <versionNumber>, the log file contains change version <versionNumber>, either there are log records of this page missing, or this page did not get written out to disk properly.
+Log has change record on page <page>, which is beyond the end of the container.
+Another instance of Derby may have already booted the database <databaseName>.
+WARNING: Derby (instance <value>) is attempting to boot the database <databaseName> even though Derby (instance <value>) may still be active. Only one instance of Derby should boot a database at a time. Severe and non-recoverable corruption can result and may have already occurred.
+WARNING: Derby (instance <value>) is attempting to boot the database <databaseName> even though Derby (instance <value>) may still be active. Only one instance of Derby should boot a database at a time. Severe and non-recoverable corruption can result if 2 instances of Derby boot on the same database at the same time. The derby.database.forceDatabaseLock=true property has been set, so the database will not boot until the db.lck is no longer present. Normally this file is removed when the first instance of Derby to boot on the database exits, but it may be left behind in some shutdowns. It will be necessary to remove the file by hand in that case. It is important to verify that no other VM is accessing the database before deleting the db.lck file by hand.
+Stream container <containerName> is corrupt.
+Attempt to allocate object <object> failed.
+Unknown page format at page <page>, page dump follows: <value>
+Write of container information to page 0 of container <container> failed. See nested error for more information.
+Could not create file <fileName> as it already exists.
+Exception during creation of file <fileName> for container
+Exception during creation of file <fileName> for container, file could not be removed. The exception was: <value>.
+Cannot create segment <segmentName>.
+Exception during remove of file <fileName> for dropped container, file could not be removed <value>.
+Cannot find the allocation page <page>.
+Newly created page failed to be latched <value>
+Cannot find page <page> to reuse.
+Operation not supported by a read only database
+Different page image read on 2 I/Os on Page <page>, first image has incorrect checksum, second image has correct checksum. Page images follows: <value> <value>
+The requested operation failed due to an unexpected exception.
+Cannot backup the database, got an I/O Exception while writing to the backup container file <fileName>.
+Error encountered while trying to write data to disk during database recovery. Check that the database disk is not full. If it is then delete unnecessary files, and retry connecting to the database. It is also possible that the file system is read only, or the disk has failed, or some other problem with the media. System encountered error while processing page <page>.
+Page <page> could not be read from disk.
+Page <page> could not be written to disk, please check if the disk is full, or if a file system limit, such as a quota or a maximum file size, has been reached.
+Invalid checksum on Page <page>, expected=<value>, on-disk version=<value>, page dump follows: <value>
+Meta-data for <containerName> could not be accessed to <type> <file>
+Database is not in create mode when createFinished is called.
+Data segment directory not found in <value> backup during restore. Please make sure that backup copy is the right one and it is not corrupted.
+Directory <directoryName> could not be removed during restore. Please make sure that permissions are correct.
+Unable to copy directory '<directoryName>' to '<value>' during restore. Please make sure that there is enough space and permissions are correct.
+Derby thread received an interrupt during a disk I/O operation, please check your application for the source of the interrupt.
+Cannot flush the log file to disk <value>.
+Log Record has been sent to the stream, but it cannot be applied to the store (Object <object>). This may cause recovery problems also.
+System will shutdown, got I/O Exception while accessing log file.
+Log Corrupted, has invalid data in the log stream.
+Cannot write to the log, most likely the log is full. Please delete unnecessary files. It is also possible that the file system is read only, or the disk has failed, or some other problems with the media.
+Cannot read log stream for some reason to rollback transaction <transactionID>.
+Cannot recover the database.
+Cannot redo operation <operation> in the log.
+Cannot rollback transaction <value>, trying to compensate <value> operation with <value>
+The store has been marked for shutdown by an earlier exception.
+Cannot find log file <logfileName>, please make sure your logDevice property is properly set with the correct path separator for your platform.
+Database at <value> have incompatible format with the current version of software, it may have been created by or upgraded by a later version.
+log Record at instant <value> in log file <value> corrupted. Expected log record length <value>, real length <logfileName>.
+Control file at <value> cannot be written or updated.
+A Read Only database was created with dirty data buffers.
+A Read Only database is being updated.
+Cannot log the checkpoint log record
+The logging system has been marked to shut down due to an earlier problem and will not allow any more operations until the system shuts down and restarts.
+Database has exceeded largest log file number <value>.
+log record size <logfileName> exceeded the maximum allowable log file size <value>. Error encountered in log file <value>, position <number>.
+Cannot verify database format at {1} due to IOException.
+Database at <value> has an incompatible format with the current version of the software. The database was created by or upgraded by version <versionNumber>.
+Recovery failed unexpected problem <value>.
+Database at <value> is at version <versionNumber>. Beta databases cannot be upgraded,
+cannot create log file at directory <directoryName>.
+Unable to copy log file '<logfileName>' to '<value>' during restore. Please make sure that there is enough space and permissions are correct.
+Log directory <directoryName> not found in backup during restore. Please make sure that backup copy is the correct one and it is not corrupted.
+The log directory '<directoryName>' exists. The directory might belong to another database. Check that the location specified for the logDevice attribute is correct.
+Log operation <logOperation> encounters error writing itself out to the log stream, this could be caused by an errant log operation or internal log buffer full due to excessively large log operation.
+Log operation <logOperation> logging excessive data, it filled up the internal log buffer.
+Cannot find truncationLWM <value>.
+Illegal truncationLWM instant <value> for truncation point <value>. Legal range is from <value> to <value>.
+Trying to log a 0 or -ve length log Record.
+Trying to reset a scan to <value>, beyond its limit of <value>.
+Cannot issue any more change, log factory has been stopped.
+Cannot freeze the database after it is already frozen.
+Cannot backup the database to <value>, which is not a directory.
+Error renaming file (during backup) from <value> to <value>.
+Error copying file (during backup) from <path> to <path>.
+Cannot create backup directory <directoryName>.
+Backup caught unexpected exception.
+Log Device can only be set during database creation time, it cannot be changed on the fly.
+Record <recordName> no longer exists
+Cannot backup the database when unlogged operations are uncommitted. Please commit the transactions with backup blocking operations.
+Backup cannot be performed in a transaction with uncommitted unlogged operations.
+Cannot backup the database to <directoryLocation>, it is a database directory.
+A transaction was already active, when attempt was made to make another transaction active.
+An exception was thrown during transaction abort.
+Cannot log transaction changes, maybe trying to write to a read only database.
+Cannot abort transaction because the log manager is null, probably due to an earlier error.
+Creating database with logging disabled encountered unexpected problem.
+Cannot substitute a transaction table with another while one is already in use.
