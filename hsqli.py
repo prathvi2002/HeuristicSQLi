@@ -590,11 +590,16 @@ if __name__ == "__main__":
     parser.add_argument("--proxy", help="Optional proxy URL to route requests through. Example: --proxy http://127.0.0.1:9090")
     parser.add_argument("--debug", action="store_true", help="Enable debug mode.")
     parser.add_argument(
-            "--timeout",
-            type=int,
-            default=10,
-            help="Maximum seconds to wait for a response (default 10). Example: --timeout 10"
-        )
+        "--timeout",
+        type=int,
+        default=10,
+        help="Maximum seconds to wait for a response (default 10). Example: --timeout 10"
+    )
+    parser.add_argument(
+        "--parameters",
+        nargs='+',                  # Accept one or more values
+        help="Only test these parameter names for potential SQLi (case-sensitive). If not provided all parameters are tested. Example: --parameters ID name token"
+    )
 
     argcomplete.autocomplete(parser)
     args = parser.parse_args()
@@ -615,35 +620,64 @@ if __name__ == "__main__":
     debug_mode = args.debug
     proxy_url_value = args.proxy
     timeout_value = args.timeout
+    target_parameters_value = args.parameters
+
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0",
+        "Accept": "*/*",
+        "Accept-Language": "en;q=0.5, *;q=0.1",
+        "Accept-Encoding": "gzip, deflate, br"
+    }
 
     # for check for error presence throught status code, then check for error presence throught sql error present in mutated response
     for url in urls_value:
-        _, parameter_names = detect_paramters(url)
+        # if target parameter(s) provided using --parameters, test for those specific parameters only
+        if target_parameters_value:
+            _, parameter_names = detect_paramters(url)
 
-        for parameter_name in parameter_names:
-            parameter_value = get_parameter_value(url=url, param_name=parameter_name)
-            
-            # if the parameter didn't have a value, give that parameter the value 123
-            if parameter_value == "aprefix123asuffix":
-                # adds 123 value to specified parameter if its value is empty
-                url = replace_empty_url_param(url=url, target_param=parameter_name)
+            for parameter_name in parameter_names:
+                if parameter_name in target_parameters_value:
+                    parameter_value = get_parameter_value(url=url, param_name=parameter_name)
+                
+                    # if the parameter didn't have a value, give that parameter the value 123
+                    if parameter_value == "aprefix123asuffix":
+                        # adds 123 value to specified parameter if its value is empty
+                        url = replace_empty_url_param(url=url, target_param=parameter_name)
 
-            headers = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0",
-                "Accept": "*/*",
-                "Accept-Language": "en;q=0.5, *;q=0.1",
-                "Accept-Encoding": "gzip, deflate, br"
-            }
+                    # -- Heuristic SQLi test THROUGH PRESENCE OF 5XX RESPONSE STATUS CODE
+                    sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
+                    # if test_sqli_500 doesn't return None
+                    if sqli_500_code:
+                        mutated_url, response_status_code = sqli_500_code
+                        print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: {response_status_code} response code. Mutated URL used for testing: {mutated_url}")
 
-            # -- Heuristic SQLi test THROUGH PRESENCE OF 5XX RESPONSE STATUS CODE
-            sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
-            # if test_sqli_500 doesn't return None
-            if sqli_500_code:
-                mutated_url, response_status_code = sqli_500_code
-                print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: {response_status_code} response code. Mutated URL used for testing: {mutated_url}")
+                    # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
+                    # Get baseline response
+                    sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
+                    if sqli_error_present is True:
+                        print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error: '{error_message}' in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}")
 
-            # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
-            # Get baseline response
-            sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
-            if sqli_error_present is True:
-                print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error: '{error_message}' in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}")
+        # if target parameter(s) is not provided using --parameters, test for all parameters
+        else:
+            _, parameter_names = detect_paramters(url)
+
+            for parameter_name in parameter_names:
+                parameter_value = get_parameter_value(url=url, param_name=parameter_name)
+                
+                # if the parameter didn't have a value, give that parameter the value 123
+                if parameter_value == "aprefix123asuffix":
+                    # adds 123 value to specified parameter if its value is empty
+                    url = replace_empty_url_param(url=url, target_param=parameter_name)
+
+                # -- Heuristic SQLi test THROUGH PRESENCE OF 5XX RESPONSE STATUS CODE
+                sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
+                # if test_sqli_500 doesn't return None
+                if sqli_500_code:
+                    mutated_url, response_status_code = sqli_500_code
+                    print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: {response_status_code} response code. Mutated URL used for testing: {mutated_url}")
+
+                # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
+                # Get baseline response
+                sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
+                if sqli_error_present is True:
+                    print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error: '{error_message}' in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}")
