@@ -279,7 +279,7 @@ errors = {}
 for db, path in error_files.items():
     with open(path, 'r') as file:
         errors[db] = [line.strip() for line in file]
-def test_sqli_error(url, parameter_name, original_parameter_value, proxy_url=None, headers=None):
+def test_sqli_error(url, parameter_name, original_parameter_value, timeout, proxy_url=None, headers=None):
     """
     Detects SQL error messages in the response body by mutating a given URL parameter with common SQL injection payloads and checking for known DBMS-specific errors. It avoids false positives by comparing against the baseline (normal) response content, if the baseline also contains the same SQL error that's a false positive which is ignored.
 
@@ -287,6 +287,7 @@ def test_sqli_error(url, parameter_name, original_parameter_value, proxy_url=Non
         url (str): The original URL containing the parameter to test.
         parameter_name (str): The name of the parameter to mutate.
         original_parameter_value (str): The original value of the parameter to be mutated by appending suffix.
+        timeout (int): Timeout for requests in seconds.
         proxy_url (str, optional): Optional HTTP proxy to use for requests.
         headers (dict, optional): Custom HTTP headers to include in the request, such as User-Agent or Authorization.
 
@@ -305,7 +306,7 @@ def test_sqli_error(url, parameter_name, original_parameter_value, proxy_url=Non
 
     try:
         # Get baseline response
-        baseline_response = requests.get(url, timeout=10, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
+        baseline_response = requests.get(url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
         baseline_response_text = baseline_response.text.lower()
     # Handles all request failures
     except Exception as e:
@@ -333,7 +334,7 @@ def test_sqli_error(url, parameter_name, original_parameter_value, proxy_url=Non
 
         try:
             # sending URL encoded payload and checking for potential sqli
-            payload_response = requests.get(mutated_url, timeout=10, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
+            payload_response = requests.get(mutated_url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
             payload_response_text = payload_response.text.lower()  # response body in lowercase normalised
 
             if baseline_response_text is not None and payload_response_text is not None:
@@ -354,7 +355,7 @@ def test_sqli_error(url, parameter_name, original_parameter_value, proxy_url=Non
 
             # sending non URL encoded payload and checking for potential sqli
             try:
-                payload_response_raw = raw_get_request(full_url=mutated_url_raw, proxy_url=proxy_url, headers=headers, timeout=10)
+                payload_response_raw = raw_get_request(full_url=mutated_url_raw, proxy_url=proxy_url, headers=headers, timeout=timeout)
             except Exception as e:
                 payload_response_raw = None
             # if request didn't fail
@@ -448,14 +449,15 @@ def get_parameter_value(url, param_name):
     #     return None
 
 
-def test_sqli_500(url, parameter_name, original_parameter_value, proxy_url=None, headers=None):
+def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_url=None, headers=None):
     """
     Tests a specific URL parameter for potential SQL injection vulnerabilities by appending common payload suffixes to the original provided parameter value. If the parameter is vulnerable, these mutations may trigger server-side 5xx errors. Any 5xx status code other than baseline response is returned indicating potential SQLi behaviour.
 
     Args:
         url (str): Full URL containing the target parameter to be tested.
         parameter_name (str): The name of the parameter to test (mutate).
-        parameter_value (str): The original, unmodified value of the parameter.
+        original_parameter_value (str): The original, unmodified value of the parameter.
+        timeout (int): Timeout for requests in seconds.
         proxy_url (str, optional): Optional HTTP proxy to route requests through.
         headers (dict, optional): Custom HTTP headers to include in the request, such as User-Agent or Authorization.
 
@@ -472,7 +474,7 @@ def test_sqli_500(url, parameter_name, original_parameter_value, proxy_url=None,
 
     try:
         # Get baseline response
-        baseline_response = requests.get(url, timeout=10, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
+        baseline_response = requests.get(url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
         if baseline_response.status_code >= 500 and baseline_response.status_code < 600:
             debug_print(f"[~] `test_sqli` Returning None because the baseline response returned a 5xx response code ({baseline_response.status_code}).")
             return None
@@ -499,13 +501,13 @@ def test_sqli_500(url, parameter_name, original_parameter_value, proxy_url=None,
 
         try:
             # sending URL encoded payload and checking for potential sqli
-            mutated_response = requests.get(mutated_url, timeout=10, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
+            mutated_response = requests.get(mutated_url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
             if mutated_response.status_code >= 500 and mutated_response.status_code < 600:
                 return (mutated_url, mutated_response.status_code)
             
             # sending non URL encoded payload and checking for potential sqli
             try:
-                mutated_response_raw = raw_get_request(full_url=mutated_url_raw, proxy_url=proxy_url, headers=headers, timeout=10)
+                mutated_response_raw = raw_get_request(full_url=mutated_url_raw, proxy_url=proxy_url, headers=headers, timeout=timeout)
             except Exception as e:
                 mutated_response_raw = None
             # if request didn't fail
@@ -583,18 +585,36 @@ def replace_empty_url_param(url, target_param, default_value="123"):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="SQLi vulnerability detector via 5xx errors and SQL error messages.")
-    parser.add_argument("urls", nargs="+", help="One or more target URLs to test.")
+    parser = argparse.ArgumentParser(description="SQLi vulnerability detector via 5xx errors and presence of SQL error messages.")
+    parser.add_argument("urls", nargs="*", help="One or more target URLs to test.")
     parser.add_argument("--proxy", help="Optional proxy URL to route requests through. Example: --proxy http://127.0.0.1:9090")
     parser.add_argument("--debug", action="store_true", help="Enable debug mode.")
+    parser.add_argument(
+            "--timeout",
+            type=int,
+            default=10,
+            help="Maximum seconds to wait for a response (default 10). Example: --timeout 10"
+        )
 
     argcomplete.autocomplete(parser)
     args = parser.parse_args()
 
+    ## Collect URLs from CLI and from stdin if piped
+    # Start with any URLs provided as positional arguments from CLI
+    urls_value = list(args.urls)
+    # If stdin is not a TTY, it means data was piped in
+    if not sys.stdin.isatty():
+        for line in sys.stdin:
+            line = line.strip()
+            if line:
+                urls_value.append(line)
 
-    urls_value = args.urls
+    if not urls_value:
+        parser.error("No URLs provided (via args or piped input).")
+
     debug_mode = args.debug
     proxy_url_value = args.proxy
+    timeout_value = args.timeout
 
     # for check for error presence throught status code, then check for error presence throught sql error present in mutated response
     for url in urls_value:
@@ -616,7 +636,7 @@ if __name__ == "__main__":
             }
 
             # -- Heuristic SQLi test THROUGH PRESENCE OF 5XX RESPONSE STATUS CODE
-            sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, proxy_url=proxy_url_value, headers=headers)
+            sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value proxy_url=proxy_url_value, headers=headers)
             # if test_sqli_500 doesn't return None
             if sqli_500_code:
                 mutated_url, response_status_code = sqli_500_code
@@ -624,6 +644,6 @@ if __name__ == "__main__":
 
             # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
             # Get baseline response
-            sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, proxy_url=proxy_url_value, headers=headers)
+            sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value proxy_url=proxy_url_value, headers=headers)
             if sqli_error_present is True:
                 print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error: '{error_message}' in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}")
