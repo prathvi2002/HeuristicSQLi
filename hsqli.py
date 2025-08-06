@@ -17,7 +17,13 @@ from http.client import HTTPConnection, HTTPSConnection
 # Disable SSL certificate warnings 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+# ANSI escape codes to color specific parts of printed output for visibility and categorization.
+YELLOW = "\033[93m"
+GRAY = "\033[90m"
+GREEN = "\033[32m"
 CYAN = "\033[96m"
+PINK = "\033[95m"
+ORANGE = "\033[91m"
 RESET = "\033[0m"
 
 
@@ -714,13 +720,13 @@ if __name__ == "__main__":
                     # if test_sqli_500 doesn't return None
                     if sqli_500_code:
                         mutated_url, response_status_code = sqli_500_code
-                        print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: {response_status_code} response code. Mutated URL used for testing: {mutated_url}")
+                        print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} {response_status_code} response code. {ORANGE}Mutated URL used for testing{RESET}: {mutated_url}")
 
                     # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
                     # Get baseline response
                     sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
                     if sqli_error_present is True:
-                        print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error: '{error_message}' in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}")
+                        print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} SQL error: '{error_message}' in response body (likely database: {database}). {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
 
         # if target parameter(s) is not provided using --parameters, test for all parameters
         else:
@@ -739,13 +745,13 @@ if __name__ == "__main__":
                 # if test_sqli_500 doesn't return None
                 if sqli_500_code:
                     mutated_url, response_status_code = sqli_500_code
-                    print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: {response_status_code} response code. Mutated URL used for testing: {mutated_url}")
+                    print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} {response_status_code} response code. {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
 
                 # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
                 # Get baseline response
                 sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
                 if sqli_error_present is True:
-                    print(f"[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error: '{error_message}' in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}")
+                    print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} SQL error: '{error_message}' in response body (likely database: {database}). {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
 
 
     MAX_PARALLEL = threads_value
