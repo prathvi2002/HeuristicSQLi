@@ -365,11 +365,14 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
         mutated_url_raw = modified_url_param(url=encoded_url, target_param=parameter_name, replace_value=payload_raw)
 
         try:
-            # sending URL encoded payload and checking for potential sqli
-            payload_response = requests.get(mutated_url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
-            payload_response_text = payload_response.text.lower()  # response body in lowercase normalised
+            try:
+                # sending URL encoded payload and checking for potential sqli
+                payload_response = requests.get(mutated_url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
+                payload_response_text = payload_response.text.lower()  # response body in lowercase normalised
+            except Exception as e:
+                payload_response_text = None
 
-            if baseline_response_text is not None and payload_response_text is not None:
+            if payload_response_text is not None:
                 for db in errors.keys():
                     sql_errors = errors.get(db)
 
@@ -395,21 +398,20 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
                 payload_response_raw_status_code, payload_response_raw_response_text = payload_response_raw
                 payload_response_raw_response_text = payload_response_raw_response_text.lower()  # response body in lowercase normalised
 
-                if baseline_response_text is not None and payload_response_raw_response_text is not None:
-                    for db in errors.keys():
-                        sql_errors = errors.get(db)
+                for db in errors.keys():
+                    sql_errors = errors.get(db)
 
-                        for err in sql_errors:
-                            if err.lower() in payload_response_raw_response_text:
-                                detected_database = db
-                                found_error_msg = err.lower()
+                    for err in sql_errors:
+                        if err.lower() in payload_response_raw_response_text:
+                            detected_database = db
+                            found_error_msg = err.lower()
 
-                                # Avoid false positives by checking if the error is already present in baseline
-                                if found_error_msg in baseline_response_text:
-                                    continue
+                            # Avoid false positives by checking if the error is already present in baseline
+                            if found_error_msg in baseline_response_text:
+                                continue
 
-                                if found_error_msg not in baseline_response_text:
-                                    return (True, detected_database, found_error_msg, mutated_url_raw)
+                            if found_error_msg not in baseline_response_text:
+                                return (True, detected_database, found_error_msg, mutated_url_raw)
 
         # Handles all request failures
         except Exception as e:
