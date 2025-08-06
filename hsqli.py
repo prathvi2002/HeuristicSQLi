@@ -300,7 +300,7 @@ for db, rel_path in error_files.items():
     abs_path = get_resource_path(rel_path)
     with open(abs_path, 'r') as file:
         errors[db] = [line.strip() for line in file]
-def test_sqli_error(url, parameter_name, original_parameter_value, timeout, proxy_url=None, headers=None):
+def test_sqli_error(url, parameter_name, original_parameter_value, timeout, proxy_url=None, headers=None, more_payloads=False):
     """
     Detects SQL error messages in the response body by mutating a given URL parameter with common SQL injection payloads and checking for known DBMS-specific errors. It avoids false positives by comparing against the baseline (normal) response content, if the baseline also contains the same SQL error that's a false positive which is ignored.
 
@@ -311,6 +311,7 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
         timeout (int): Timeout for requests in seconds.
         proxy_url (str, optional): Optional HTTP proxy to use for requests.
         headers (dict, optional): Custom HTTP headers to include in the request, such as User-Agent or Authorization.
+        more_payloads (bool, optional): If True, use an expanded set of suffixes (including OR-based, wildcard, and operator variations) to generate more aggressive payloads. Defaults to False, in which case only the core suffix list (quotes and comment markers) is used.
 
     Returns:
         tuple: A tuple of (is_sqli_error: bool or None (None if request fails for baseline), database_name: str or None, matched_error_msg: str or None), mutated_url (str or None)
@@ -334,7 +335,13 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
         # returns None if couldn't get a response
         return (None, None, None, None)
 
-    suffixes = ["'", '"', "'--", '"--', "'#", '"#']
+    if more_payloads is True:
+        suffixes1 = ["'", '"', "'--", '"--', "'-- ", '"-- ', "'#", '"#', "'# ", '"# ', "';", '";', "';--", '";--', "';#", '";#']
+        suffixes2 = ["'&'", "'^'", "'*'", "' or ''-'", "' or '' '", "' or ''&'", "' or ''^'", "' or ''*'"]
+        suffixes3 = ['"&"', '"^"', '"*"', '" or ""-"', '" or "" "', '" or ""&"', '" or ""^"', '" or ""*"']
+        suffixes = suffixes1 + suffixes2 + suffixes3
+    else:
+        suffixes = ["'", '"', "'--", '"--', "'-- ", '"-- ', "'#", '"#', "'# ", '"# ', "';", '";', "';--", '";--', "';#", '";#']
 
     # parameter_value = parameter
 
@@ -470,7 +477,7 @@ def get_parameter_value(url, param_name):
     #     return None
 
 
-def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_url=None, headers=None):
+def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_url=None, headers=None, more_payloads=False):
     """
     Tests a specific URL parameter for potential SQL injection vulnerabilities by appending common payload suffixes to the original provided parameter value. If the parameter is vulnerable, these mutations may trigger server-side 5xx errors. Any 5xx status code other than baseline response is returned indicating potential SQLi behaviour.
 
@@ -481,6 +488,7 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
         timeout (int): Timeout for requests in seconds.
         proxy_url (str, optional): Optional HTTP proxy to route requests through.
         headers (dict, optional): Custom HTTP headers to include in the request, such as User-Agent or Authorization.
+        more_payloads (bool, optional): If True, use an expanded set of suffixes (including OR-based, wildcard, and operator variations) to generate more aggressive payloads. Defaults to False, in which case only the core suffix list (quotes and comment markers) is used.
 
     Returns:
         tuple | None:
@@ -504,7 +512,13 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
         # returns None if couldn't get a response
         return None
 
-    suffixes = ["'", '"', "'--", '"--', "'#", '"#']
+    if more_payloads is True:
+        suffixes1 = ["'", '"', "'--", '"--', "'-- ", '"-- ', "'#", '"#', "'# ", '"# ', "';", '";', "';--", '";--', "';#", '";#']
+        suffixes2 = ["'&'", "'^'", "'*'", "' or ''-'", "' or '' '", "' or ''&'", "' or ''^'", "' or ''*'"]
+        suffixes3 = ['"&"', '"^"', '"*"', '" or ""-"', '" or "" "', '" or ""&"', '" or ""^"', '" or ""*"']
+        suffixes = suffixes1 + suffixes2 + suffixes3
+    else:
+        suffixes = ["'", '"', "'--", '"--', "'-- ", '"-- ', "'#", '"#', "'# ", '"# ', "';", '";', "';--", '";--', "';#", '";#']
 
     # parameter_value = parameter
 
@@ -624,6 +638,12 @@ if __name__ == "__main__":
         help="Optional proxy URL to route requests through. Example: --proxy http://127.0.0.1:9090"
     )
     parser.add_argument(
+        "-m",
+        "--more-payloads",
+        action="store_true",
+        help="Use a larger set of payload suffixes. Example: --more-payloads"
+    )
+    parser.add_argument(
         "-d",
         "--debug",
         action="store_true",
@@ -665,6 +685,7 @@ if __name__ == "__main__":
     debug_mode = args.debug
     timeout_value = args.timeout
     threads_value = args.threads
+    more_payloads_value = args.more_payloads
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0",
