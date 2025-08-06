@@ -20,3 +20,4 @@ nuitka --standalone --onefile hsqli.py --include-data-dir=errors=errors
 
 # TODO:
 - Option to ignore/remove specific SQL error messages.
+- In likely database output don't just print one DBMS error found, rather print all DBMS errors found.
