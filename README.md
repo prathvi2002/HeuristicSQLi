@@ -6,3 +6,9 @@ Script for Basic heuristic-based SQLi detection through error-based injection. U
     - Step 3: Send mutated request.
         - If the response is `5xx` and the baseline wasn't, it's flagged as SQLi-prone.
         - Check Response Body: Sometimes response code might be still 200, but the response body contains DB errors. It its the case, flagged as SQLi-prone.
+
+
+### Compilation
+```bash
+nuitka --standalone --onefile hsqli.py --include-data-dir=errors=errors
+```
