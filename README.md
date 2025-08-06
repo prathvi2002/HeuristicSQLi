@@ -15,3 +15,6 @@ Script for Basic heuristic-based SQLi detection through error-based injection. U
 ```bash
 nuitka --standalone --onefile hsqli.py --include-data-dir=errors=errors
 ```
+
+# TODO:
+- Option to ignore/remove specific SQL error messages.
