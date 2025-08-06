@@ -639,50 +639,6 @@ Upgrading the database from a previous version is not supported. The database be
 The requested function can not reference tables in SESSION schema.
 The statement has been cancelled or timed out.
 Stream is closed
-Result set does not return rows. Operation <operationName> not permitted.
-Activation closed, operation <operationName> not permitted.
-Cursor '<cursorName>' is closed. Verify that autocommit is OFF.
-Cursor '<cursorName>' is not on a row.
-An Activation was passed to the '<methodName>' method that does not match the PreparedStatement.
-A PreparedStatement has been recompiled and the parameters have changed. If you are using JDBC you must prepare the statement again.
-An attempt was made to put a data value of type '<datatypeName>' into a data value of type '<datatypeName>'.
-The parameter position '<parameterPosition>' is out of range. The number of parameters for this prepared statement is '<number>'.
-The column position '<columnPosition>' is out of range. The number of columns for this ResultSet is '<number>'.
-A ClassCastException occurred when calling the compareTo() method on an object '<object>'. The parameter to compareTo() is of class '<className>'.
-ResultSet not open. Operation '<operation>' not permitted. Verify that autocommit is OFF.
-Stream or LOB value cannot be retrieved more than once
-Missing row in table '<tableName>' for key '<key>'.
-Catalogs at version level '<versionNumber>' cannot be upgraded to version level '<versionNumber>'.
-You are trying to execute a Data Definition statement (CREATE, DROP, or ALTER) while preparing a different statement. This is not allowed. It can happen if you execute a Data Definition statement from within a static initializer of a Java class that is being used from within a SQL statement.
-Parameter <parameterName> cannot be registered as an OUT parameter because it is an IN parameter.
-SQL type number '<type>' is not a supported type by registerOutParameter().
-Parameter <parameterName> appears to be an output parameter, but it has not been so designated by registerOutParameter(). If it is not an output parameter, then it has to be set to type <type>.
-Parameter <parameterName> cannot be registered to be of type <type> because it maps to type <type> and they are incompatible.
-Parameter <parameterName> is not an output parameter.
-Return output parameters cannot be set.
-An IOException was thrown when reading a '<value>' from an InputStream.
-Statement closed.
-The table cannot be defined as a dependent of table <tableName> because of delete rule restrictions. (The relationship is self-referencing and a self-referencing relationship already exists with the SET NULL delete rule.)
-The table cannot be defined as a dependent of table <tableName> because of delete rule restrictions. (The relationship forms a cycle of two or more tables that cause the table to be delete-connected to itself (all other delete rules in the cycle would be CASCADE)).
-The table cannot be defined as a dependent of table <tableName> because of delete rule restrictions. (The relationship causes the table to be delete-connected to the indicated table through multiple relationships and the delete rule of the existing relationship is SET NULL.).
-The delete rule of foreign key must be <value>. (The referential constraint is self-referencing and an existing self-referencing constraint has the indicated delete rule (NO ACTION, RESTRICT or CASCADE).)
-The delete rule of foreign key must be <value>. (The referential constraint is self-referencing and the table is dependent in a relationship with a delete rule of CASCADE.)
-the delete rule of foreign key must be <ruleName>. (The relationship would cause the table to be delete-connected to the same table through multiple relationships and such relationships must have the same delete rule (NO ACTION, RESTRICT or CASCADE).)
-The delete rule of foreign key cannot be CASCADE. (A self-referencing constraint exists with a delete rule of SET NULL, NO ACTION or RESTRICT.)
-The delete rule of foreign key cannot be CASCADE. (The relationship would form a cycle that would cause a table to be delete-connected to itself. One of the existing delete rules in the cycle is not CASCADE, so this relationship may be definable if the delete rule is not CASCADE.)
-the delete rule of foreign key can not be CASCADE. (The relationship would cause another table to be delete-connected to the same table through multiple paths with different delete rules or with delete rule equal to SET NULL.)
-CASCADE
-SET NULL
-RESTRICT
-NO ACTION
-SET DEFAULT
-Use of '<value>' requires database to be upgraded from version <versionNumber> to version <versionNumber> or later.
-TRUNCATE TABLE is not permitted on '<value>' because unique/primary key constraints on this table are referenced by enabled foreign key constraints from other tables.
-TRUNCATE TABLE is not permitted on '<value>' because it has an enabled DELETE trigger (<value>).
-Upgrading the database from a previous version is not supported. The database being accessed is at version level '<versionNumber>', this software is at version level '<versionNumber>'.
-The requested function can not reference tables in SESSION schema.
-The statement has been cancelled or timed out.
-Stream is closed
 Unsupported upgrade from '<value>' to '<value>'.
 Invalid identifier.
 Invalid database classpath: '<classpath>'.

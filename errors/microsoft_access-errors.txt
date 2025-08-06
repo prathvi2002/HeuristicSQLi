@@ -17,6 +17,7 @@ Too many DLL application clients
 Bad DLL calling convention
 Internal error
 Bad file name or number
+File not found
 Bad file mode
 File already open
 Device I/O error
@@ -31,6 +32,7 @@ Permission denied
 Disk not ready
 Can't rename with different drive
 Path/File access error
+Path not found
 Object variable or With block variable not set
 For loop not initialized
 Invalid pattern string

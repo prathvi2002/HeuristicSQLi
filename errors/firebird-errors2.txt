@@ -1,3 +1,4 @@
+Segment
 from_no_match
 no_record
 segstr_eof
@@ -176,7 +177,7 @@ rel_cnstrnt_update
 invld_cnstrnt_type
 check_constraint
 upd_ins_doesnt_match_pk
-upd_ins_doesnt_
+upd_ins_doesnt_match_matching
 dsql_count_mismatch
 transliteration_failed
 dyn_dtype_invalid
@@ -593,10 +594,10 @@ blob_filter_exception
 exception_access_violation
 exception_datatype_missalignment
 exception_array_bounds_exceeded
-exception_float_denormal_
+exception_float_denormal_operand
 exception_float_divide_by_zero
 exception_float_inexact_result
-exception
+exception_float_invalid_operand
 exception_float_overflow
 exception_float_stack_check
 exception_float_underflow

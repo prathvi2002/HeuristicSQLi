@@ -1,3 +1,5 @@
+successful_completion
+warning
 dynamic_result_sets_returned
 implicit_zero_bit_padding
 null_value_eliminated_in_set_function
@@ -7,6 +9,7 @@ string_data_right_truncation
 deprecated_feature
 no_data
 no_additional_dynamic_result_sets_returned
+sql_statement_not_yet_complete
 connection_exception
 connection_does_not_exist
 connection_failure
@@ -118,6 +121,7 @@ transaction_timeout
 invalid_sql_statement_name
 triggered_data_change_violation
 invalid_authorization_specification
+invalid_password
 dependent_privilege_descriptors_still_exist
 dependent_objects_still_exist
 invalid_transaction_termination
