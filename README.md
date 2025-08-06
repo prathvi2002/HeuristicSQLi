@@ -13,7 +13,7 @@ Warning: Don’t supply URLs that already include SQL-injection payloads or you 
                 - Check Response Body: Sometimes response code might be still 200, but the response body contains DB errors. It its the case, flagged as potential SQLi.
                 - Compares against the baseline body to filter out SQL errors already present (avoiding false positives).
 
-## Some points to keep in mind or might come handy while using VBust
+## Some points to keep in mind or might come handy while using HeuristicSQLi
 - When the mutated URL uses a value `aprefix123asuffix` for a parameter, it means the original URL provided had the parameter name present but no assigned value.
 
 ### Compilation
