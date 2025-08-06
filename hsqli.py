@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 import sys
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse, unquote, quote
 import argparse
@@ -34,6 +35,13 @@ def debug_print(message, newline=False):
         print(f"\n\n{cyan_line}\nDebug: {message}{RESET}\n{cyan_line}")
     elif debug_mode:
         print(f"Debug: {message}")
+
+
+def get_resource_path(relative_path):
+    """Get the absolute path to a bundled resource file (works for Nuitka onefile)."""
+    if getattr(sys, 'frozen', False):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.dirname(__file__), relative_path)
 
 
 def detect_paramters(url):
@@ -285,11 +293,12 @@ errors = {
         "error in your SQL syntax", "missing operator", "column not found", "unknown column", "table not found", "ambiguous column",
         "data type mismatch", "division by zero", "operand should contain", "number of query values and columns do not match",
         "invalid identifier"
-        ]
+    ]
 }
 
-for db, path in error_files.items():
-    with open(path, 'r') as file:
+for db, rel_path in error_files.items():
+    abs_path = get_resource_path(rel_path)
+    with open(abs_path, 'r') as file:
         errors[db] = [line.strip() for line in file]
 def test_sqli_error(url, parameter_name, original_parameter_value, timeout, proxy_url=None, headers=None):
     """
