@@ -279,17 +279,15 @@ def raw_get_request(full_url, proxy_url=None, headers=None, timeout=10, verify=F
 # Preloading DBMS-specific SQL error messages into memory by keeping it out of the test_sqli_error function. This avoids repeatedly opening and reading the same files during SQLi error testing.
 error_files = {
     "mysql": "errors/mysql-errors.txt",
-    "oracle_1": "errors/oracle-errors1.txt",
-    "oracle_2": "errors/oracle-errors2.txt",
-    "postgresql_1": "errors/postgresql-errors1.txt",
-    "postgresql_2": "errors/postgresql-errors2.txt",
+    "oracle": "errors/oracle-errors.txt",
+    "postgresql": "errors/postgresql-errors.txt",
     "microsoft_sql_server": "errors/microsoft_sql_server-errors.txt",
     "microsoft_access": "errors/microsoft_access-errors.txt",
     "ibm_db2": "errors/ibm_db2-errors.txt",
     "sqlite": "errors/sqlite-errors.txt",
     "firebird_1": "errors/firebird-errors1.txt",
     "firebird_2": "errors/firebird-errors2.txt",
-    "firebird_3": "errors/firebird-errors3.txt"
+    "mariadb": "errors/mariadb-errors.txt"  # incomplete errors in mariadb-errors.txt
 }
 
 # 'errors' is a dict mapping each DBMS name to a list of its error messages.

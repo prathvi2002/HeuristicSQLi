@@ -1,758 +1,757 @@
-Segment
-from_no_match
-no_record
-segstr_eof
-stream_eof
-gfix_opt_SQL_dialect
-bad_debug_format
-nonsql_security_rel
-nonsql_security_fld
-dsql_procedure_use_err
-usrname_too_long
-password_too_long
-usrname_required
-password_required
-bad_protocol
-dup_usrname_found
-usrname_not_found
-error_adding_sec_record
-error_modifying_sec_record
-error_deleting_sec_record
-error_updating_sec_db
-dsql_constant_err
-dsql_transitional_numeric
-sql_db_dialect_dtype_unsupport
-dsql_invalid_label
-dsql_datatypes_not_comparable
-invalid_blr
-syntaxerr
-ctxinuse
-ctxnotdef
-badparnum
-bad_msg_vec
-invalid_sdl
-dsql_command_err
-dsql_internal_err
-dsql_dup_option
-dsql_tran_err
-dsql_invalid_array
-command_end_err
-token_err
-dsql_token_unk_err
-dsql_agg_ref_err
-invalid_array_id
-cse_not_supported
-token_too_long
-invalid_string_constant
-transitional_date
-sql_dialect_datatype_unsupport
-depend_on_uncommitted_rel
-dsql_column_pos_err
-dsql_agg_where_err
-dsql_agg_group_err
-dsql_agg_column_err
-dsql_agg_having_err
-dsql_agg_nested_err
-malformed_string
-command_end_err2
-dsql_max_sort_items
-dsql_max_group_items
-dsql_conflicting_sort_field
-dsql_derived_table_more_columns
-dsql_derived_table_less_columns
-dsql_derived_field_unnamed
-dsql_derived_field_dup_name
-dsql_derived_alias_select
-dsql_derived_alias_field
-dsql_auto_field_bad_pos
-dsql_cte_wrong_reference
-dsql_cte_cycle
-dsql_cte_outer_join
-dsql_cte_mult_references
-dsql_cte_not_a_union
-dsql_cte_nonrecurs_after_recurs
-dsql_cte_wrong_clause
-dsql_cte_union_all
-dsql_cte_miss_nonrecursive
-dsql_cte_nested_with
-dsql_col_more_than_once_using
-dsql_cte_not_used
-like_escape_invalid
-extract_input_mismatch
-read_only_rel
-read_only_view
-non_updatable
-constaint_on_view
-read_only_field
-dsql_base_table
-specify_field_err
-num_field_err
-no_dbkey
-prcmismat
-extern_func_err
-prc_out_param_mismatch
-funmismat
-invalid_dimension
-return_mode_err
-array_max_dimensions
-funnotdef
-dyn_fld_ambiguous
-dsql_ambiguous_field_name
-gennotdef
-stream_not_defined
-charset_not_found
-prcnotdef
-codnotdef
-xcpnotdef
-ref_cnstrnt_notfound
-grant_obj_notfound
-text_subtype
-dsql_datatype_err
-dsql_relation_err
-dsql_procedure_err
-collation_not_found
-collation_not_for_charset
-dsql_trigger_err
-alias_conflict_err
-procedure_conflict_error
-relation_conflict_err
-dsql_no_relation_alias
-indexname
-collation_requires_text
-dsql_blob_type_unknown
-bad_default_value
-invalid_clause
-too_many_contexts
-bad_limit_param
-bad_skip_param
-bad_substring_offset
-bad_substring_length
-charset_not_installed
-collation_not_installed
-subtype_for_internal_use
-fldnotdef
-grant_fld_notfound
-fldnotdef2
-dsql_field_err
-dsql_blob_err
-dsql_subselect_err
-dsql_line_col_error
-dsql_unknown_pos
-dsql_no_dup_name
-order_by_err
-relnotdef
-domnotdef
-walw_err
-logh_small
-logh_inv_version
-logh_open_flag
-logh_open_flag2
-logh_diff_dbname
-logf_unexpected_eof
-logr_incomplete
-logr_header_small2
-logb_small
-cache_too_small
-log_too_small
-partition_too_small
-no_wal
-start_cm_for_wal
-cache_redef
-log_redef
-partition_not_supp
-log_length_spec
-no_stream_plan
-stream_twice
-dsql_self_join
-duplicate_base_table
-view_alias
-complex_view
-stream_not_found
-index_unused
-primary_key_notnull
-ref_cnstrnt_update
-check_cnstrnt_update
-check_cnstrnt_del
-rel_cnstrnt_update
-invld_cnstrnt_type
-check_constraint
-upd_ins_doesnt_match_pk
-upd_ins_doesnt_match_matching
-dsql_count_mismatch
-transliteration_failed
-dyn_dtype_invalid
-dyn_dependency_exists
-invalid_operator
-segstr_no_op
-blobnotsup
-datnotsup
-out_of_bounds
-nullsegkey
-convert_error
-nofilter
-blob_convert_error
-array_convert_error
-dsql_cursor_close_err
-dsql_cursor_redefined
-dsql_cursor_not_found
-dsql_cursor_exists
-dsql_cursor_rel_ambiguous
-dsql_cursor_rel_not_found
-dsql_cursor_not_open
-dsql_decl_err
-dsql_cursor_open_err
-dsql_cursor_invalid
-dsql_cursor_err
-no_cur_rec
-dsql_cursor_update_err
-dsql_request_err
-dsql_open_cursor_request
-foreign_key
-foreign_key_target_doesnt_exist
-foreign_key_references_present
-dsql_crdb_prepare_err
-trans_invalid
-no_priv
-insufficient_svc_privileges
-not_rel_owner
-grant_nopriv
-grant_nopriv_on_base
-existing_priv_mod
-stream_crack
-stream_bof
-dsql_file_length_err
-dsql_shadow_number_err
-node_err
-node_name_err
-crrp_data_err
-db_or_file_exists
-dsql_max_arr_dim_exceeded
-dsql_arr_range_error
-dsql_field_ref
-dsql_dbkey_from_non_table
-dsql_udf_return_pos_err
-dsql_type_not_supp_ext_tab
-no_meta_update
-systrig_update
-dsql_no_blob_array
-reftable_requires_pk
-generator_name
-udf_name
-must_have_phys_field
-dsql_table_not_found
-dsql_view_not_found
-dsql_no_array_computed
-dsql_only_can_subscript_array
-dyn_domain_name_exists
-dyn_field_name_exists
-relation_lock
-record_lock
-range_in_use
-primary_key_ref
-integ_index_del
-integ_index_mod
-check_trig_del
-cnstrnt_fld_del
-dependency
-del_last_field
-integ_index_deactivate
-integ_deactivate_primary
-check_trig_update
-cnstrnt_fld_rename
-integ_index_seg_del
-integ_index_seg_mod
-not_valid
-not_valid_for_var
-not_valid_for
-dsql_duplicate_spec
-dsql_implicit_domain_name
-primary_key_required
-foreign_key_notfound
-idx_create_err
-idx_seg_err
-idx_key_err
-key_field_err
-keytoobig
-ext_err
-bad_segstr_type
-blob_idx_err
-array_idx_err
-badpagtyp
-page_type_err
-no_segments_err
-rec_size_err
-max_idx
-req_max_clones_exceeded
-no_field_access
-arith_except
-concat_overflow
-no_dup
-unique_key_violation
-dsql_feature_not_supported_ods
-wronumarg
-dsql_sqlda_err
-dsql_var_count_err
-dsql_function_err
-dsql_sqlda_value_err
-dsql_too_old_ods
-col_name_err
-where_err
-table_view_err
-distinct_err
-subquery_err
-sing_select_err
-ext_readonly_err
-extfile_uns_op
-isc_sql_dialect_conflict_num
-upd_ins_with_complex_view
-dsql_incompatible_trigger_type
-dsql_db_trigger_type_cant_change
-read_only_trans
-segstr_no_write
-read_only
-read_only_database
-must_be_dialect_2_and_up
-ddl_not_allowed_by_db_sql_dial
-obsolete_metadata
-wrong_ods
-wrodynver
-high_minor
-need_difference
-invalid_bookmark
-bad_lock_level
-bad_lock_handle
-dsql_stmt_handle
-invalid_direction
-invalid_key
-inval_key_posn
-dyn_char_fld_too_small
-dyn_invalid_dtype_conversion
-dyn_dtype_conv_invalid
-max_coll_per_charset
-invalid_coll_attr
-dyn_scale_too_big
-dyn_precision_too_small
-field_ref_err
-field_aggregate_err
-primary_key_exists
-key_field_count_err
-expression_eval_err
-date_range_exceeded
-range_not_found
-bad_checksum
-except
-except2
-cache_restart
-shutwarn
-version_err
-precision_err
-scale_nogt
-expec_short
-expec_long
-expec_ushort
-expec_positive
-gfix_db_name
-gbak_unknown_switch
-gstat_unknown_switch
-fbsvcmgr_bad_am
-gfix_invalid_sw
-bad_dbkey
-fbsvcmgr_bad_wm
-gbak_page_size_missing
-gstat_retry
-fbsvcmgr_bad_rs
-gstat_wrong_ods
-gbak_page_size_toobig
-gfix_incmp_sw
-gstat_unexpected_eof
-gbak_redir_ouput_missing
-fbsvcmgr_info_err
-gfix_replay_req
-gbak_switches_conflict
-fbsvcmgr_query_err
-bad_dpb_form
-gfix_pgbuf_req
-fbsvcmgr_switch_unknown
-gbak_unknown_device
-bad_req_handle
-gfix_val_req
-gbak_no_protection
-bad_segstr_handle
-gfix_pval_req
-gbak_page_size_not_allowed
-bad_segstr_id
-gfix_trn_req
-gbak_multi_source_dest
-bad_tpb_content
-gbak_filename_missing
-bad_tpb_form
-gbak_dup_inout_names
-gfix_full_req
-bad_trans_handle
-gbak_inv_page_size
-gfix_usrname_req
-gbak_db_specified
-gfix_pass_req
-gbak_db_exists
-gfix_subs_name
-gsec_cant_open_db
-gbak_unk_device
-gsec_switches_error
-gfix_sec_req
-excess_trans
-gsec_no_op_spec
-gfix_nval_req
-gsec_no_usr_name
-gfix_type_shut
-infinap
-infona
-gsec_err_add
-gsec_err_modify
-gbak_blob_info_failed
-gfix_retry
-infunk
-gsec_err_find_mod
-gbak_unk_blob_item
-integ_fail
-gbak_get_seg_failed
-gsec_err_rec_not_found
-gsec_err_delete
-gbak_close_blob_failed
-gfix_retry_db
-gbak_open_blob_failed
-gsec_err_find_del
-lock_conflict
-gbak_put_blr_gen_id_failed
-gbak_unk_type
-gbak_comp_req_failed
-gbak_start_req_failed
-gsec_err_find_disp
-gbak_rec_failed
-gstat_open_err
-gsec_inv_param
-no_finish
-gstat_read_err
-gbak_rel_req_failed
-gsec_op_specified
-gstat_sysmemex
-gbak_db_info_failed
-gsec_pw_specified
-gsec_uid_specified
-gbak_no_db_desc
-no_recon
-gsec_gid_specified
-gbak_db_create_failed
-gsec_proj_specified
-gbak_decomp_len_error
-no_segstr_close
-gbak_tbl_missing
-gsec_org_specified
-gbak_blob_col_missing
-gsec_fname_specified
-open_trans
-gbak_create_blob_failed
-gsec_mname_specified
-port_len
-gbak_put_seg_failed
-gsec_lname_specified
-gbak_rec_len_exp
-gsec_inv_switch
-gbak_inv_rec_len
-gbak_exp_data_type
-gsec_amb_switch
-gbak_gen_id_failed
-gsec_no_op_specified
-req_no_trans
-gbak_unk_rec_type
-gsec_params_not_allowed
-req_sync
-gsec_incompat_switch
-gbak_inv_bkup_ver
-req_wrong_db
-gbak_missing_bkup_desc
-gbak_string_trunc
-gbak_cant_rest_record
-gbak_send_failed
-segstr_no_read
-gbak_no_tbl_name
-segstr_no_trans
-gbak_unexp_eof
-gbak_db_format_too_old
-segstr_wrong_db
-gbak_inv_array_dim
-gbak_xdr_len_expected
-unres_rel
-uns_ext
-wish_list
-random
-fatal_conflict
-gfix_exceed_max
-gfix_corrupt_pool
-gfix_mem_exhausted
-gbak_open_bkup_error
-gfix_bad_pool
-gbak_open_error
-gfix_trn_not_valid
-bdbincon
-gsec_inv_username
-gsec_inv_pw_length
-gsec_db_specified
-gsec_db_admin_specified
-gsec_db_admin_pw_specified
-gsec_sql_role_specified
-gfix_unexp_eoi
-dbbnotzer
-tranotzer
-gfix_recon_fail
-trainlim
-notinlim
-traoutsta
-badmsgnum
-gfix_trn_unknown
-gfix_mode_req
-blocking_signal
-gfix_pzval_req
-noargacc_read
-noargacc_write
-misc_interpreted
-tra_state
-bad_stmt_handle
-gbak_missing_block_fac
-gbak_inv_block_fac
-gbak_block_fac_specified
-dyn_role_does_not_exist
-gbak_missing_username
-gbak_missing_password
-dyn_no_grant_admin_opt
-lock_timeout
-dyn_user_not_role_member
-dyn_delete_role_failed
-dyn_grant_role_to_user
-dyn_inv_sql_role_name
-dyn_dup_sql_role
-dyn_kywd_spec_for_role
-dyn_roles_not_supported
-gbak_missing_skipped_bytes
-gbak_inv_skipped_bytes
-dyn_zero_len_id
-gbak_err_restore_charset
-gbak_err_restore_collation
-gbak_read_error
-gbak_write_error
-dyn_wrong_gtt_scope
-gbak_db_in_use
-gbak_sysmemex
-bad_svc_handle
-wrospbver
-bad_spb_form
-svcnotdef
-dyn_ods_not_supp_feature
-gbak_restore_role_failed
-gbak_role_op_missing
-gbak_page_buffers_missing
-gbak_page_buffers_wrong_param
-gbak_page_buffers_restore
-gbak_inv_size
-gbak_file_outof_sequence
-gbak_join_file_missing
-gbak_stdin_not_supptd
-gbak_stdout_not_supptd
-gbak_bkup_corrupt
-gbak_unk_db_file_spec
-gbak_hdr_write_failed
-gbak_disk_space_ex
-gbak_size_lt_min
-gbak_svc_name_missing
-gbak_not_ownr
-gbak_mode_req
-gbak_just_data
-gbak_data_only
-index_name
-exception_name
-field_name
-union_err
-dsql_construct_err
-dsql_domain_err
-table_name
-proc_name
-dsql_domain_not_found
-dsql_var_conflict
-srvr_version_too_old
-no_delete
-sort_err
-svcnoexe
-net_lookup_err
-service_unknown
-host_unknown
-unprepared_stmt
-svc_in_use
-tra_must_sweep
-udf_exception
-lost_db_connection
-no_write_user_priv
-blob_filter_exception
-exception_access_violation
-exception_datatype_missalignment
-exception_array_bounds_exceeded
-exception_float_denormal_operand
-exception_float_divide_by_zero
-exception_float_inexact_result
-exception_float_invalid_operand
-exception_float_overflow
-exception_float_stack_check
-exception_float_underflow
-exception_integer_divide_by_zero
-exception_integer_overflow
-exception_unknown
-exception_stack_overflow
-exception_sigsegv
-exception_sigill
-exception_sigbus
-exception_sigfpe
-ext_file_delete
-ext_file_modify
-adm_task_denied
-cancelled
-svcnouser
-datype_notsup
-dialect_not_changed
-database_create_failed
-inv_dialect_specified
-valid_db_dialects
-inv_client_dialect_specified
-valid_client_dialects
-service_not_supported
-invalid_savepoint
-bad_shutdown_mode
-no_update
-stack_trace
-ctx_var_not_found
-ctx_namespace_invalid
-ctx_too_big
-ctx_bad_argument
-identifier_too_long
-invalid_time_precision
-met_wrong_gtt_scope
-illegal_prc_type
-invalid_sort_datatype
-collation_name
-domain_name
-max_db_per_trans_allowed
-bad_proc_BLR
-key_too_big
-dsql_too_many_values
-dsql_unsupp_feature_dialect
-bug_check
-db_corrupt
-io_error
-metadata_corrupt
-sys_request
-badblk
-invpoolcl
-relbadblk
-blktoobig
-badodsver
-dirtypage
-waifortra
-doubleloc
-nodnotfnd
-dupnodfnd
-locnotmar
-corrupt
-badpage
-badindex
-trareqmis
-badhndcnt
-wrotpbver
-wroblrver
-wrodpbver
-badrelation
-nodetach
-notremote
-dbfile
-orphan
-lockmanerr
-sqlerr
-bad_sec_info
-invalid_sec_info
-buf_invalid
-indexnotdefined
-login
-shutinprog
-shutdown
-shutfail
-dsql_error
-psw_attach
-psw_start_trans
-err_stack_limit
-network_error
-net_connect_err
-net_connect_listen_err
-net_event_connect_err
-net_event_listen_err
-net_read_err
-net_write_err
-unsupported_network_drive
-io_create_err
-io_open_err
-io_close_err
-io_read_err
-io_write_err
-io_delete_err
-io_access_err
-login_same_as_role_name
-file_in_use
-unexp_spb_form
-extern_func_dir_error
-io_32bit_exceeded_err
-conf_access_denied
-cursor_not_open
-cursor_already_open
-att_shutdown
-long_login
-bad_db_handle
-unavailable
-imp_exc
-nopoolids
-bufexh
-bufinuse
-reqinuse
-no_lock_mgr
-virmemexh
-update_conflict
-obj_in_use
-shadow_accessed
-shadow_missing
-index_root_page_full
-sort_mem_err
-req_depth_exceeded
-sort_rec_size_err
-too_many_handles
-service_att_err
-svc_name_missing
-optimizer_between_err
-exec_sql_invalid_arg
-exec_sql_invalid_req
-exec_sql_invalid_var
-exec_sql_max_call_exceeded
-wrong_backup_state
-partner_idx_incompat_type
-blobtoobig
-record_lock_not_supp
-partner_idx_not_found
-tra_num_exc
-field_disappeared
-concurrent_transaction
-max_att_exceeded
-drdb_completed_with_errs
-rec_in_limbo
-deadlock
-bad_db_format
-connect_reject
-cant_validate
-cant_start_logging
-bad_dpb_content
-bad_detach
-conn_lost
-no_rollback
-ib_error
+Segment buffer length shorter than expected
+No match for first value expression
+Invalid database key
+Attempted retrieval of more segments than exist
+Attempt to fetch past the last record in a record stream
+-sql_dialect | set database dialect n
+Bad debug info format
+Table/procedure has non-SQL security class defined
+Column has non-SQL security class defined
+Procedure @1 does not return any values
+The username entered is too long. Maximum length is 31 bytes
+The password specified is too long. Maximum length is @1 bytes
+A username is required for this operation
+A password is required for this operation
+The network protocol specified is invalid
+A duplicate user name was found in the security database
+The user name specified was not found in the security database
+An error occurred while attempting to add the user
+An error occurred while attempting to modify the user record
+An error occurred while attempting to delete the user record
+An error occurred while updating the security database
+Data type for constant unknown
+Precision 10 to 18 changed from DOUBLE PRECISION in SQL dialect 1 to 64-bit scaled integer in SQL dialect 3
+Database SQL dialect @1 does not support reference to @2 datatype
+Label @1 @2 in the current scope
+Datatypes @1are not comparable in expression @2
+Invalid request BLR at offset @1
+BLR syntax error: expected @1 at offset @2, encountered @3
+Context already in use (BLR error)
+Context not defined (BLR error)
+Bad parameter number
+Invalid slice description language at offset @1
+Invalid command
+Internal error
+Option specified more than once
+Unknown transaction option
+Invalid array reference
+Unexpected end of command
+Token unknown
+Token unknown - line @1, column @2
+Invalid aggregate reference
+Invalid blob id
+Client/Server Express not supported in this release
+Token size exceeds limit
+A string constant is delimited by double quotes
+DATE must be changed to TIMESTAMP
+Client SQL dialect @1 does not support reference to @2 datatype
+You created an indirect dependency on uncommitted metadata. You must roll back the current transaction
+Invalid column position used in the @1 clause
+Cannot use an aggregate function in a WHERE clause, use HAVING instead
+Cannot use an aggregate function in a GROUP BY clause
+Invalid expression in the @1 (not contained in either an aggregate function or the GROUP BY clause)
+Invalid expression in the @1 (neither an aggregate function nor a part of the GROUP BY clause)
+Nested aggregate functions are not allowed
+Malformed string
+Unexpected end of command- line @1, column @2
+Cannot sort on more than 255 items
+Cannot group on more than 255 items
+Cannot include the same field (@1.@2) twice in the ORDER BY clause with conflicting sorting options
+Column list from derived table @1 has more columns than the number of items in its SELECT statement
+Column list from derived table @1 has less columns than the number of items in its SELECT statement
+No column name specified for column number @1 in derived table @2
+Column @1 was specified multiple times for derived table @2
+Internal dsql error: alias type expected by pass1_expand_select_node
+Internal dsql error: alias type expected by pass1_field
+Internal dsql error: column position out of range in pass1_union_auto_cast
+Recursive CTE member (@1) can refer itself only in FROM clause
+CTE '@1' has cyclic dependencies
+Recursive member of CTE can't be member of an outer join
+Recursive member of CTE can't reference itself more than once
+Recursive CTE (@1) must be an UNION
+CTE '@1' defined non-recursive member after recursive
+Recursive member of CTE '@1' has @2 clause
+Recursive members of CTE (@1) must be linked with another members via UNION ALL
+Non-recursive member is missing in CTE '@1'
+WITH clause can't be nested
+Column @1 appears more than once in USING clause
+CTE "@1" is not used in query
+Invalid ESCAPE sequence
+Specified EXTRACT part does not exist in input datatype
+Attempted update of read-only table
+Cannot update read-only view @1
+Not updatable
+Cannot define constraints on views
+Attempted update of read - only column
+@1 is not a valid base table of the specified view
+Must specify column name for view select expression
+Number of columns does not match select list
+Dbkey not available for multi - table views
+Input parameter mismatch for procedure @1
+External functions cannot have morethan 10 parametrs
+Output parameter mismatch for procedure @1
+Function @1 could not be matched
+Column not array or invalid dimensions (expected @1, encountered @2)
+Return mode by value not allowed for this data type
+Array data type can use up to @1 dimensions
+Function @1 is not defined
+Ambiguous column reference
+Ambiguous field name between @1 and @2
+Generator @1 is not defined
+Reference to invalid stream number
+CHARACTER SET @1 is not defined
+Procedure @1 is not defined
+Status code @1 unknown
+Exception @1 not defined
+Name of Referential Constraint not defined in constraints table
+Could not find table/procedure for GRANT
+Implementation of text subtype @1 not located
+Data type unknown
+Table unknown
+Procedure unknown
+COLLATION @1 for CHARACTER SET @2 is not defined
+COLLATION @1 is not valid for specified CHARACTER SET
+Trigger unknown
+Alias @1 conflicts with an alias in the same statement
+Alias @1 conflicts with a procedure in the same statement
+Alias @1 conflicts with a table in the same statement
+There is no alias or table named @1 at this scope level
+There is no index @1 for table @2
+Invalid use of CHARACTER SET or COLLATE
+BLOB SUB_TYPE @1 is not defined
+Can not define a not null column with NULL as default value
+Invalid clause - '@1'
+Too many Contexts of Relation/Procedure/Views. Maximum allowed is 255
+Invalid parameter to FIRST.Only integers >= 0 are allowed
+Invalid parameter to SKIP. Only integers >= 0 are allowed
+Invalid offset parameter @1 to SUBSTRING. Only positive integers are allowed
+Invalid length parameter @1 to SUBSTRING. Negative integers are not allowed
+CHARACTER SET @1 is not installed
+COLLATION @1 for CHARACTER SET @2 is not installed
+Blob sub_types bigger than 1 (text) are for internal use only
+Column @1 is not defined in table @2
+Could not find column for GRANT
+Column @1 is not defined in procedure @2
+Column unknown
+Column is not a BLOB
+Subselect illegal in this context
+At line @1, column @2
+At unknown line and column
+Column @1 cannot be repeated in @2 statement
+Invalid ORDER BY clause
+Table @1 is not defined
+Domain @1 is not defined
+WAL Writer error
+Log file header of @1 too small
+Invalid version of log file @1
+Log file @1 not latest in the chain but open flag still set
+Log file @1 not closed properly; database recovery may be required
+Database name in the log file @1 is different
+Unexpected end of log file @1 at offset @2
+Incomplete log record at offset @1 in log file @2
+Log record header too small at offset @1 in log file @
+Log block too small at offset @1 in log file @2
+Insufficient memory to allocate page buffer cache
+Log size too small
+Log partition size too small
+Database does not use Write-ahead Log
+WAL defined; Cache Manager must be started first
+Cache redefined
+Log redefined
+Partitions not supported in series of log file specification
+Total length of a partitioned log must be specified
+Table @1 is not referenced in plan
+Table @1 is referenced more than once in plan; use aliases to distinguish
+The table @1 is referenced twice; use aliases to differentiate
+Table @1 is referenced twice in view; use an alias to distinguish
+View @1 has more than one base table; use aliases to distinguish
+Navigational stream @1 references a view with more than one base table
+Table @1 is referenced in the plan but not the from list
+Index @1 cannot be used in the specified plan
+Column used in a PRIMARY constraint must be NOT NULL
+Cannot update constraints (RDB$REF_CONSTRAINTS)
+Cannot update constraints (RDB$CHECK_CONSTRAINTS)
+Cannot delete CHECK constraint entry (RDB$CHECK_CONSTRAINTS)
+Cannot update constraints (RDB$RELATION_CONSTRAINTS)
+Internal gds software consistency check (invalid RDB$CONSTRAINT_TYPE)
+Operation violates check constraint @1 on view or table @2
+UPDATE OR INSERT field list does not match primary key of table @1
+UPDATE OR INSERT field list does not match MATCHING clause
+Count of column list and variable list do not match
+Cannot transliterate character between character sets
+Cannot change datatype for column @1.Changing datatype is not supported for BLOB or ARRAY columns
+Column @1 from table @2 is referenced in @3
+Invalid comparison operator for find operation
+Attempted invalid operation on a BLOB
+BLOB and array data types are not supported for @1 operation
+Data operation not supported
+Subscript out of bounds
+Null segment of UNIQUE KEY
+Conversion error from string "@1"
+Filter not found to convert type @1 to type @2
+Unsupported conversion to target type BLOB (subtype @1)
+Unsupported conversion to target type ARRAY
+Attempt to reclose a closed cursor
+Statement already has a cursor @1 assigned
+Cursor @1 is not found in the current context
+Cursor @1 already exists in the current context
+Relation @1 is ambiguous in cursor @2
+Relation @1 is not found in cursor @2
+Cursor is not open
+Invalid cursor declaration
+Attempt to reopen an open cursor
+Empty cursor name is not allowed
+Invalid cursor reference
+No current record for fetch operation
+Cursor @1 is not updatable
+Request unknown
+The prepare statement identifies a prepare statement with an open cursor
+Violation of FOREIGN KEY constraint "@1" on table "@2"
+Foreign key reference target does not exist
+Foreign key references are present for the record
+Cannot prepare a CREATE DATABASE/SCHEMA statement
+Transaction marked invalid by I/O error
+No permission for @1 access to @2 @3
+Service @1 requires SYSDBA permissions. Reattach to the Service Manager using the SYSDBA account
+Only the owner of a table may reassign ownership
+User does not have GRANT privileges for operation
+User does not have GRANT privileges on base table/view for operation
+Cannot modify an existing user privilege
+The current position is on a crack
+Illegal operation when at beginning of stream
+Preceding file did not specify length, so @1 must include starting page number
+Shadow number must be a positive integer
+Gen.c: node not supported
+A node name is not permitted in a secondary, shadow, cache or log file name
+Sort error: corruption in data structure
+Database or file exists
+Array declared with too many dimensions
+Illegal array dimension range
+Inappropriate self-reference of column
+Cannot SELECT RDB$DB_KEY from a stored procedure
+External function should have return position between 1 and @1
+Data type @1 is not supported for EXTERNAL TABLES. Relation '@2', field '@3'
+Unsuccessful metadata update
+Cannot modify or erase a system trigger
+Array/BLOB/DATE data types not allowed in arithmetic
+"REFERENCES table" without "(column)" requires PRIMARY KEY on referenced table
+GENERATOR @1
+UDF @1
+Can't have relation with only computed fields or constraints
+Table @1 does not exist
+View @1 does not exist
+Array and BLOB data types not allowed in computed field
+Scalar operator used on field @1 which is not an array
+Cannot rename domain @1 to @2. A domain with that name already exists
+Cannot rename column @1 to @2.A column with that name already exists in table @3
+Lock on table @1 conflicts with existing lock
+Requested record lock conflicts with existing lock
+Refresh range number @1 already in use
+Cannot delete PRIMARY KEY being used in FOREIGN KEY definition
+Cannot delete index used by an Integrity Constraint
+Cannot modify index used by an Integrity Constraint
+Cannot delete trigger used by a CHECK Constraint
+Cannot delete column being used in an Integrity Constraint
+There are @1 dependencies
+Last column in a table cannot be deleted
+Cannot deactivate index used by an integrity constraint
+Cannot deactivate index used by a PRIMARY/UNIQUE constraint
+Cannot update trigger used by a CHECK Constraint
+Cannot rename column being used in an Integrity Constraint
+Cannot delete index segment used by an Integrity Constraint
+Cannot update index segment used by an Integrity Constraint
+Validation error for column @1, value "@2"
+Validation error for variable @1, value "@2"
+Validation error for @1, value "@2"
+Duplicate specification of @1- not supported
+Implicit domain name @1 not allowed in user created domain
+Primary key required on table @1
+Non-existent PRIMARY or UNIQUE KEY specified for FOREIGN KEY
+Cannot create index @1
+Segment count of 0 defined for index @1
+Too many keys defined for index @1
+Too few key columns found for index @1 (incorrect column name?)
+Key size exceeds implementation restriction for index "@1"
+@1 extension error
+Invalid BLOB type for operation
+Attempt to index BLOB column in index @1
+Attempt to index array column in index @1
+Page @1 is of wrong type (expected @2, found @3)
+Wrong page type
+Segments not allowed in expression index @1
+New record size of @1 bytes is too big
+Maximum indexes per table (@1) exceeded
+Too many concurrent executions of the same request
+Cannot access column @1 in view @2
+Arithmetic exception, numeric overflow, or string truncation
+Concatenation overflow. Resulting string cannot exceed 32K in length
+Attempt to store duplicate value ( visible to active transactions ) in unique index "@1"
+Violation of PRIMARY or UNIQUE KEY constraint "@1" on table "@2"
+Feature not supported on ODS version older than @1.@2
+Wrong number of arguments on call
+SQLDA missing or incorrect version, or incorrect number/type of variables
+Count of read - write columns does not equal count of values
+Function unknown
+Incorrect values within SQLDA structure
+ODS versions before ODS@1 are not supported
+Only simple column names permitted for VIEW WITH CHECK OPTION
+No WHERE clause for VIEW WITH CHECK OPTION
+Only one table allowed for VIEW WITH CHECK OPTION
+DISTINCT, GROUP or HAVING not permitted for VIEW WITH CHECK OPTION
+No subqueries permitted for VIEW WITH CHECK OPTION
+Multiple rows in singleton select
+Cannot insert because the file is readonly or is on a read only medium
+Operation not supported for EXTERNAL FILE table @1
+DB dialect @1 and client dialect @2 conflict with respect to numeric precision @3
+UPDATE OR INSERT without MATCHING could not be used with views based on more than one table
+Incompatible trigger type
+Database trigger type can't be changed
+Attempted update during read - only transaction
+Attempted write to read-only BLOB
+Operation not supported
+Attempted update on read - only database
+SQL dialect @1 is not supported in this database
+Metadata update statement is not allowed by the current database SQL dialect @1
+Metadata is obsolete
+Unsupported on - disk structure for file @1; found @2.@3, support @4.@5
+Wrong DYN version
+Minor version too high found @1 expected @2
+Difference file name should be set explicitly for database on raw device
+Invalid bookmark handle
+Invalid lock level @1
+Invalid lock handle
+Invalid statement handle
+Invalid direction for find operation
+Invalid key for find operation
+Invalid key position
+New size specified for column @1 must be at least @2 characters
+Cannot change datatype for @1.Conversion from base type @2 to @3 is not supported
+Cannot change datatype for column @1 from a character type to a non-character type
+Maximum number of collations per character set exceeded
+Invalid collation attributes
+New scale specified for column @1 must be at most @2
+New precision specified for column @1 must be at least @2
+Invalid column reference
+Column used with aggregate
+Attempt to define a second PRIMARY KEY for the same table
+FOREIGN KEY column count does not match PRIMARY KEY
+Expression evaluation not supported
+Value exceeds the range for valid dates
+Refresh range number @1 not found
+Bad checksum
+Exception @1
+Exception @1
+Restart shared cache manager
+Database @1 shutdown in @2 seconds
+Too many versions
+Precision must be from 1 to 18
+Scale must be between zero and precision
+Short integer expected
+Long integer expected
+Unsigned short integer expected
+Positive value expected
+Database file name (@1) already given
+Found unknown switch
+Found unknown switch
+Wrong value for access mode
+Invalid switch @1
+Invalid database key
+Wrong value for write mode
+Page size parameter missing
+Please retry, giving a database name
+Wrong value for reserve space
+Wrong ODS version, expected @1, encountered @2
+Page size specified (@1) greater than limit (16384 bytes)
+Incompatible switch combination
+Unexpected end of database file
+Redirect location for output is not specified
+Unknown tag (@1) in info_svr_db_info block after isc_svc_query()
+Replay log pathname required
+Conflicting switches for backup/restore
+Unknown tag (@1) in isc_svc_query() results
+Unrecognized database parameter block
+Number of page buffers for cache required
+Unknown switch "@1"
+Device type @1 not known
+Invalid request handle
+Numeric value required
+Protection is not there yet
+Invalid BLOB handle
+Positive numeric value required
+Page size is allowed only on restore or create
+Invalid BLOB ID
+Number of transactions per sweep required
+Multiple sources or destinations specified
+Invalid parameter in transaction parameter block
+Requires both input and output filenames
+Invalid format for transaction parameter block
+Input and output have the same name. Disallowed
+"full" or "reserve" required
+Invalid transaction handle (expecting explicit transaction start)
+Expected page size, encountered "@1"
+User name required
+REPLACE specified, but the first file @1 is a database
+Password required
+Database @1 already exists.To replace it, use the -REP switch
+Subsystem name
+Unable to open database
+Device type not specified
+Error in switch specifications
+Number of seconds required
+Attempt to start more than @1 transactions
+No operation specified
+Numeric value between 0 and 32767 inclusive required
+No user name specified
+Must specify type of shutdown
+Information type inappropriate for object specified
+No information of this type available for object specified
+Add record error
+Modify record error
+Gds_$blob_info failed
+Please retry, specifying an option
+Unknown information item
+Find / modify record error
+Do not understand BLOB INFO item @1
+Action cancelled by trigger (@1) to preserve data integrity
+Gds_$get_segment failed
+Record not found for user: @1
+Delete record error
+Gds_$close_blob failed
+Please retry, giving a database name
+Gds_$open_blob failed
+Find / delete record error
+Lock conflict on no wait transaction
+Failed in put_blr_gen_id
+Data type @1 not understood
+Gds_$compile_request failed
+Gds_$start_request failed
+Find / display record error
+gds_$receive failed
+Can't open database file @1
+Invalid parameter, no switch defined
+Program attempted to exit without finishing database
+Can't read a database page
+Gds_$release_request failed
+Operation already specified
+System memory exhausted
+gds_$database_info failed
+Password already specified
+Uid already specified
+Expected database description record
+Transaction is not in limbo
+Gid already specified
+Failed to create database @1
+Project already specified
+RESTORE: decompression length error
+BLOB was not closed
+Cannot find table @1
+Organization already specified
+Cannot find column for BLOB
+First name already specified
+Cannot disconnect database with open transactions (@1 active)
+Gds_$create_blob failed
+Middle name already specified
+Message length error ( encountered @1, expected @2)
+Gds_$put_segment failed
+Last name already specified
+Expected record length
+Invalid switch specified
+Wrong length record, expected @1 encountered @2
+Expected data attribute
+Ambiguous switch specified
+Failed in store_blr_gen_id
+No operation specified for parameters
+No transaction for request
+Do not recognize record type @1
+No parameters allowed for this operation
+Request synchronization error
+Incompatible switches specified
+Expected backup version 1..8. Found @1
+Request referenced an unavailable database
+Expected backup description record
+String truncated
+warning -- record could not be restored
+Gds_$send failed
+Attempted read of a new, open BLOB
+No table name for data
+Attempted action on blob outside transaction
+Unexpected end of file on backup file
+Database format @1 is too old to restore to
+Attempted reference to BLOB in unavailable database
+Array dimension for column @1 is invalid
+Expected XDR record length
+Table @1 was omitted from the transaction reserving list
+Request includes a DSRI extension not supported in this implementation
+Feature is not supported
+@1
+Unrecoverable conflict with limbo transaction @1
+Internal block exceeds maximum size
+Corrupt pool
+Virtual memory exhausted
+Cannot open backup file @1
+Bad pool id.
+Cannot open status and error output file @1
+Transaction state @1 not in valid range
+Internal error
+Invalid user name (maximum 31 bytes allowed)
+Warning - maximum 8 significant bytes of password used
+Database already specified
+Database administrator name already specified
+Database administrator password already specified
+SQL role name already specified
+Unexpected end of input
+Database handle not zero
+Transaction handle not zero
+Failed to reconnect to a transaction in database @1
+Transaction in limbo
+Transaction not in limbo
+Transaction outstanding
+Undefined message number
+Transaction description item unknown
+"read_only" or "read_write" required
+Blocking signal has been received
+Positive or zero numeric value required
+Database system cannot read argument @1
+Database system cannot write argument @1
+@1
+Transaction @1 is @2
+Invalid statement handle
+Blocking factor parameter missing
+Expected blocking factor, encountered "@1"
+A blocking factor may not be used in conjunction with device CT
+SQL role @1 does not exist
+User name parameter missing
+Password parameter missing
+User @1 has no grant admin option on SQL role @2
+Lock time-out on wait transaction
+User @1 is not a member of SQL role @2
+@1 is not the owner of SQL role @2
+@1 is a SQL role and not a user
+User name @1 could not be used for SQL role
+SQL role @1 already exists
+Keyword @1 can not be used as a SQL role name
+SQL roles are not supported in on older versions of the database. A backup and restore of the database is required
+missing parameter for the number of bytes to be skipped
+Expected number of bytes to be skipped, encountered "@1"
+Zero length identifiers are not allowed
+Character set
+Collation
+Unexpected I/O error while reading from backup file
+Unexpected I/O error while writing to backup file
+@1 cannot reference @2
+Could not drop database @1 (database might be in use)
+System memory exhausted
+Invalid service handle
+Wrong version of service parameter block
+Unrecognized service parameter block
+Service @1 is not defined
+Feature '@1' is not supported in ODS @2.@3
+SQL role
+SQL role parameter missing
+Page buffers parameter missing
+Expected page buffers, encountered "@1"
+Page buffers is allowed only on restore or create
+Size specification either missing or incorrect for file @1
+File @1 out of sequence
+Can't join - one of the files missing
+standard input is not supported when using join operation
+Standard output is not supported when using split operation
+Backup file @1 might be corrupt
+Database file specification missing
+Can't write a header record to file @1
+Free disk space exhausted
+File size given (@1) is less than minimum allowed (@2)
+Service name parameter missing
+Cannot restore over current database, must be SYSDBA or owner of the existing database
+"read_only" or "read_write" required
+Just data ignore all constraints etc.
+Restoring data only ignoring foreign key, unique, not null & other constraints
+INDEX @1
+EXCEPTION @1
+COLUMN @1
+Union not supported
+Unsupported DSQL construct
+Illegal use of keyword VALUE
+TABLE @1
+PROCEDURE @1
+Specified domain or source column @1 does not exist
+Variable @1 conflicts with parameter in same procedure
+Server version too old to support all CREATE DATABASE options
+Cannot delete
+Sort error
+Service @1 does not have an associated executable
+Failed to locate host machine
+Undefined service @1/@2
+The specified name was not found in the hosts file or Domain Name Services
+Attempt to execute an unprepared dynamic SQL statement
+Service is currently busy: @1
+[no associated message]
+A fatal exception occurred during the execution of a user defined function
+Connection lost to database
+User cannot write to RDB$USER_PRIVILEGES
+A fatal exception occurred during the execution of a blob filter
+Access violation.The code attempted to access a virtual address without privilege to do so
+Datatype misalignment.The attempted to read or write a value that was not stored on a memory boundary
+Array bounds exceeded. The code attempted to access an array element that is out of bounds.
+Float denormal operand.One of the floating-point operands is too small to represent a standard float value.
+Floating-point divide by zero.The code attempted to divide a floating-point value by zero.
+Floating-point inexact result.The result of a floating-point operation cannot be represented as a decimal fraction
+Floating-point invalid operand.An indeterminant error occurred during a floating-point operation
+Floating-point overflow.The exponent of a floating-point operation is greater than the magnitude allowed
+Floating-point stack check.The stack overflowed or underflowed as the result of a floating-point operation
+Floating-point underflow.The exponent of a floating-point operation is less than the magnitude allowed
+Integer divide by zero.The code attempted to divide an integer value by an integer divisor of zero
+Integer overflow.The result of an integer operation caused the most significant bit of the result to carry
+An exception occurred that does not have a description.Exception number @1
+Stack overflow.The resource requirements of the runtime stack have exceeded the memory available to it
+Segmentation Fault. The code attempted to access memory without privileges
+Illegal Instruction. The Code attempted to perfrom an illegal operation
+Bus Error. The Code caused a system bus error
+Floating Point Error. The Code caused an Arithmetic Exception or a floating point exception
+Cannot delete rows from external files
+Cannot update rows in external files
+Unable to perform operation.You must be either SYSDBA or owner of the database
+Operation was cancelled
+User name and password are required while attaching to the services manager
+Data type not supported for arithmetic
+Database dialect not changed
+Unable to create database @1
+Database dialect @1 is not a valid dialect
+Valid database dialects are @1
+Passed client dialect @1 is not a valid dialect
+Valid client dialects are @1
+Services functionality will be supported in a later version of the product
+Unable to find savepoint with name @1 in transaction context
+Target shutdown mode is invalid for database "@1"
+Cannot update
+@1
+Context variable @1 is not found in namespace @2
+Invalid namespace name @1 passed to @2
+Too many context variables
+Invalid argument passed to @1
+BLR syntax error. Identifier @1... is too long
+Time precision exceeds allowed range (0-@1)
+@1 cannot depend on @2
+Procedure @1 is not selectable (it does not contain a SUSPEND statement)
+Datatype @1 is not supported for sorting operation
+COLLATION @1
+DOMAIN @1
+A multi database transaction cannot span more than @1 databases
+Error while parsing procedure @1' s BLR
+Index key too big
+Too many values ( more than @1) in member list to match against
+Feature is not supported in dialect @1
+Internal gds software consistency check (@1)
+Database file appears corrupt (@1)
+I/O error for file "@2"
+Corrupt system table
+Operating system directive @1 failed
+Internal error
+Internal error
+Internal error
+Block size exceeds implementation restriction
+Incompatible version of on-disk structure
+Internal error
+Internal error
+Internal error
+Internal error
+Internal error
+Internal error
+Database corrupted
+Checksum error on database page @1
+Index is broken
+Transaction - request mismatch ( synchronization error )
+Bad handle count
+Wrong version of transaction parameter block
+Unsupported BLR version (expected @1, encountered @2)
+Wrong version of database parameter block
+Database corrupted
+Internal error
+Internal error
+Internal error
+Internal error
+Lock manager error
+SQL error code = @1
+[no associated message]
+[no associated message]
+Cache buffer for page @1 invalid
+There is no index in table @1 with id @2
+Your user name and password are not defined. Ask your database administrator to set up a Firebird login
+Database @1 shutdown in progress
+Database @1 shutdown
+Database shutdown unsuccessful
+Dynamic SQL Error
+Cannot attach to password database
+Cannot start transaction for password database
+Stack size insufficent to execute current request
+Unable to complete network request to host "@1"
+Failed to establish a connection
+Error while listening for an incoming connection
+Failed to establish a secondary connection for event processing
+Error while listening for an incoming event connection request
+Error reading data from the connection
+Error writing data to the connection
+Access to databases on file servers is not supported
+Error while trying to create file
+Error while trying to open file
+Error while trying to close file
+Error while trying to read from file
+Error while trying to write to file
+Error while trying to delete file
+Error while trying to access file
+Your login @1 is same as one of the SQL role name. Ask your database administrator to set up a valid Firebird login.
+The file @1 is currently in use by another process.Try again later
+Unexpected item in service parameter block, expected @1
+Function @1 is in @2, which is not in a permitted directory for external functions
+File exceeded maximum size of 2GB. Add another database file or use a 64 bit I/O version of Firebird
+Access to @1 "@2" is denied by server administrator
+Cursor is not open
+Cursor is already open
+Connection shutdown
+Login name too long (@1 characters, maximum allowed @2)
+Invalid database handle (no active connection)
+Unavailable database
+Implementation limit exceeded
+Too many requests
+Buffer exhausted
+Buffer in use
+Request in use
+No lock manager available
+Unable to allocate memory from operating system
+Update conflicts with concurrent update
+Object @1 is in use
+Cannot attach active shadow file
+A file in manual shadow @1 is unavailable
+Cannot add index, index root page is full
+Sort error: not enough memory
+Request depth exceeded. (Recursive definition?)
+Sort record size of @1 bytes is too big ????
+Too many open handles to database
+Cannot attach to services manager
+The service name was not specified
+Unsupported field type specified in BETWEEN predicate
+Invalid argument in EXECUTE STATEMENT-cannot convert to string
+Wrong request type in EXECUTE STATEMENT '@1'
+Variable type (position @1) in EXECUTE STATEMENT '@2' INTO does not match returned column type
+Too many recursion levels of EXECUTE STATEMENT
+Cannot change difference file name while database is in backup mode
+Partner index segment no @1 has incompatible data type
+Maximum BLOB size exceeded
+Stream does not support record locking
+Cannot create foreign key constraint @1. Partner index does not exist or is inactive
+Transactions count exceeded. Perform backup and restore to make database operable again
+Column has been unexpectedly deleted
+Concurrent transaction number is @1
+Maximum user count exceeded.Contact your database administrator
+Drop database completed with errors
+Record from transaction @1 is stuck in limbo
+Deadlock
+File @1 is not a valid database
+Connection rejected by remote interface
+Secondary server attachments cannot validate databases
+Secondary server attachments cannot start logging
+Bad parameters on attach or create database
+Database detach completed with errors
+Connection lost to pipe server
+No rollback performed
+Firebird error
