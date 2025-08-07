@@ -9,6 +9,7 @@ from collections import defaultdict
 import requests
 import urllib3  # For handling SSL warning suppression
 import concurrent.futures
+import time
 
 import ssl
 import gzip
@@ -724,6 +725,13 @@ if __name__ == "__main__":
         action="store_true",
         help="Enable verbose mode."
     )
+    parser.add_argument(
+        "-w",
+        "--wait",
+        type=float,
+        default=0.0,
+        help="Duration to pause in seconds after testing each URL. Use decimal for milliseconds (e.g., 0.5 for 500ms). Example: --sleep 3 OR --sleep 0.3"
+    )
 
     argcomplete.autocomplete(parser)
     args = parser.parse_args()
@@ -749,6 +757,7 @@ if __name__ == "__main__":
     more_payloads_value = args.more_payloads
     detection_mode_value = args.detection_mode
     verbose_value = args.verbose
+    sleep_value = args.sleep
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0",
@@ -821,6 +830,8 @@ if __name__ == "__main__":
                         # print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} SQL error: '{error_message}' in response body (likely database: {database}). {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
                         print(f"{GRAY}[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error:{RESET} {PINK}'{error_message}'{RESET} {GRAY}in response body (likely database for each errors: {database}). Mutated URL used for testing: {mutated_url}{RESET}")
                         print("")
+        if sleep_value:
+            time.sleep(sleep_value)
 
 
     MAX_PARALLEL = threads_value
