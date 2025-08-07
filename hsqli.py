@@ -515,6 +515,7 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
             - If a 5xx error is triggered by a payload, returns (mutated_url, response_status_code).
             - Returns None if:
                 * The baseline response already returns 5xx (invalid test case),
+                * The the status code for different baselien responses are not same (response codes are not consistent),
                 * No payload triggers a 5xx error,
                 * A request exception occurs.
     """
@@ -524,6 +525,11 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
     try:
         # Get baseline response
         baseline_response = requests.get(url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
+        baseline_response2 = requests.get(url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
+        # if the response status codes for 2 baseline requests are not consistent, then don't test the provided target and return None
+        if baseline_response.status_code != baseline_response2.status_code:
+            debug_print(f"[~] Baseline status codes inconsistent - request 1: {baseline_response.status_code} vs request 2: {baseline_response2.status_code}")
+            return None
         if baseline_response.status_code >= 500 and baseline_response.status_code < 600:
             debug_print(f"[~] `test_sqli` Returning None because the baseline response returned a 5xx response code ({baseline_response.status_code}).")
             return None
