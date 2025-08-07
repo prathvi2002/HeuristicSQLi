@@ -757,7 +757,7 @@ if __name__ == "__main__":
     more_payloads_value = args.more_payloads
     detection_mode_value = args.detection_mode
     verbose_value = args.verbose
-    sleep_value = args.sleep
+    wait_value = args.wait
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0",
@@ -830,8 +830,8 @@ if __name__ == "__main__":
                         # print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} SQL error: '{error_message}' in response body (likely database: {database}). {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
                         print(f"{GRAY}[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error:{RESET} {PINK}'{error_message}'{RESET} {GRAY}in response body (likely database for each errors: {database}). Mutated URL used for testing: {mutated_url}{RESET}")
                         print("")
-        if sleep_value:
-            time.sleep(sleep_value)
+        if wait_value:
+            time.sleep(wait_value)
 
 
     MAX_PARALLEL = threads_value
