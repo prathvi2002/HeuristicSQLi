@@ -296,7 +296,7 @@ errors = {
         "syntax error", "unterminated string", "unclosed quotation mark", "unexpected token", "query failed", "invalid query",
         "error in your SQL syntax", "missing operator", "column not found", "unknown column", "table not found", "ambiguous column",
         "data type mismatch", "division by zero", "operand should contain", "number of query values and columns do not match",
-        "invalid identifier", "OperationalError", "Traceback"
+        "invalid identifier"
     ]
 }
 
