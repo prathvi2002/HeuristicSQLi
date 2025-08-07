@@ -296,7 +296,7 @@ errors = {
         "syntax error", "unterminated string", "unclosed quotation mark", "unexpected token", "query failed", "invalid query",
         "error in your SQL syntax", "missing operator", "column not found", "unknown column", "table not found", "ambiguous column",
         "data type mismatch", "division by zero", "operand should contain", "number of query values and columns do not match",
-        "invalid identifier"
+        "invalid identifier", "OperationalError", "Traceback"
     ]
 }
 
@@ -319,10 +319,21 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
 
     Returns:
         tuple: A tuple of (is_sqli_error: bool or None (None if request fails for baseline), database_name: str or None, matched_error_msg: str or None), mutated_url (str or None)
-            - is_sqli_error: True if a known SQL error message is found in the mutated response but not in the baseline.
-            - database_name: The name of the DBMS whose error message found in payload response, or None if no match found.
-            - matched_error_msg: The actual SQL error message found in payload response, or None if no match found.
-            - mutated_url: The URL with the payload that triggered the SQL error in response, or None if no error was triggered.
+            - is_sqli_error (bool or None): 
+                - True if any known SQL error message is found in mutated response but not in the baseline.
+                - False if no SQL errors are detected.
+                - None if the baseline request fails (can't assess).
+            - found_errors (list of tuples or None): 
+                A list of (database_name, error_message) tuples for all matched SQL errors, or None if no matches were found. Can be used to show user which DBMS each found SQL error belongs to.
+            - error_messages (list of str or None):
+                A flat list of SQL error message strings found in payload response, or None if no matches were found.
+            - mutated_url (str or None):
+                The URL with the payload that triggered the SQL error in response, or None if no error was triggered.
+
+    Notes:
+        - The function avoids false positives by ensuring detected SQL error messages are absent from the baseline response.
+        - Both encoded and raw versions of the payloads are tested.
+        - Warning: The input URL must not already contain SQLi payloads, or results may be inaccurate.
     """
 
     proxies = {"http": proxy_url, "https": proxy_url} if proxy_url else None
@@ -372,27 +383,30 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
             except Exception as e:
                 payload_response_text = None
 
+            found_errors = []
             if payload_response_text is not None:
                 for db in errors.keys():
                     sql_errors = errors.get(db)
 
                     for err in sql_errors:
-                        if err.lower() in payload_response_text:
+                        err_lower = err.lower()
+                        # Avoids false positives by checking if the error is only present in mutated response and not already present in baseline
+                        if err_lower in payload_response_text and err_lower not in baseline_response_text:
                             detected_database = db
-                            found_error_msg = err.lower()
+                            found_error_msg = err_lower
+                            found_errors.append((detected_database, found_error_msg))
 
-                            # Avoid false positives by checking if the error is already present in baseline
-                            if found_error_msg in baseline_response_text:
-                                continue
-
-                            if found_error_msg not in baseline_response_text:
-                                return (True, detected_database, found_error_msg, mutated_url)
+            if found_errors:
+                error_msgs = [msg for _, msg in found_errors]
+                return (True, found_errors, error_msgs, mutated_url)
 
             # sending non URL encoded payload and checking for potential sqli
             try:
                 payload_response_raw = raw_get_request(full_url=mutated_url_raw, proxy_url=proxy_url, headers=headers, timeout=timeout)
             except Exception as e:
                 payload_response_raw = None
+            
+            found_errors = []
             # if request didn't fail
             if payload_response_raw is not None:
                 payload_response_raw_status_code, payload_response_raw_response_text = payload_response_raw
@@ -402,16 +416,16 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
                     sql_errors = errors.get(db)
 
                     for err in sql_errors:
-                        if err.lower() in payload_response_raw_response_text:
+                        err_lower = err.lower()
+                        # Avoids false positives by checking if the error is only present in mutated response and not already present in baseline
+                        if err_lower in payload_response_raw_response_text and err_lower not in baseline_response_text:
                             detected_database = db
                             found_error_msg = err.lower()
+                            found_errors.append((detected_database, found_error_msg))
 
-                            # Avoid false positives by checking if the error is already present in baseline
-                            if found_error_msg in baseline_response_text:
-                                continue
-
-                            if found_error_msg not in baseline_response_text:
-                                return (True, detected_database, found_error_msg, mutated_url_raw)
+            if found_errors:
+                error_msgs = [msg for _, msg in found_errors]
+                return (True, found_errors, error_msgs, mutated_url)
 
         # Handles all request failures
         except Exception as e:
@@ -650,6 +664,20 @@ if __name__ == "__main__":
         help="Use a larger set of payload suffixes. Example: --more-payloads"
     )
     parser.add_argument(
+        "-M",
+        "--detection-mode",
+        choices=["errors", "status", "both"],
+        default="both",
+        help="Detection method: 'errors' for SQL error message matching, "
+            "'status' for HTTP 5xx detection, or 'both' (default) for using both methods."
+    )
+    # parser.add_argument(
+    #     "--ignore-errors", "-i",
+    #     nargs="+",
+    #     help="List of SQL error messages to ignore during detection (case-insensitive). Example: --ignore-errors 'login' 'division by zero'",
+    #     default=[]
+    # )
+    parser.add_argument(
         "-d",
         "--debug",
         action="store_true",
@@ -692,6 +720,7 @@ if __name__ == "__main__":
     timeout_value = args.timeout
     threads_value = args.threads
     more_payloads_value = args.more_payloads
+    detection_mode_value = args.detection_mode
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0",
@@ -699,6 +728,8 @@ if __name__ == "__main__":
         "Accept-Language": "en;q=0.5, *;q=0.1",
         "Accept-Encoding": "gzip, deflate, br"
     }
+
+    print(f"Detection mode selected: {detection_mode_value}\n")
 
     def scan_url(url):
         # # for check for error presence throught status code, then check for error presence throught sql error present in mutated response
@@ -715,20 +746,22 @@ if __name__ == "__main__":
                         # adds 123 value to specified parameter if its value is empty
                         url = replace_empty_url_param(url=url, target_param=parameter_name)
 
-                    # -- Heuristic SQLi test THROUGH PRESENCE OF 5XX RESPONSE STATUS CODE
-                    sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
-                    # if test_sqli_500 doesn't return None
-                    if sqli_500_code:
-                        mutated_url, response_status_code = sqli_500_code
-                        print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} {response_status_code} response code. {ORANGE}Mutated URL used for testing{RESET}: {mutated_url}")
-                        print("")
+                    if detection_mode_value == "both" or detection_mode_value == "errors":
+                        # -- Heuristic SQLi test THROUGH PRESENCE OF 5XX RESPONSE STATUS CODE
+                        sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
+                        # if test_sqli_500 doesn't return None
+                        if sqli_500_code:
+                            mutated_url, response_status_code = sqli_500_code
+                            print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} {response_status_code} response code. {ORANGE}Mutated URL used for testing{RESET}: {mutated_url}")
+                            print("")
 
-                    # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
-                    # Get baseline response
-                    sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
-                    if sqli_error_present is True:
-                        # print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} SQL error: '{error_message}' in response body (likely database: {database}). {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
-                        print(f"{GRAY}[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error:{RESET} {PINK}'{error_message}'{RESET} {GRAY}in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}{RESET}")
+                    if detection_mode_value == "both" or detection_mode_value == "status":
+                        # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
+                        # Get baseline response
+                        sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
+                        if sqli_error_present is True:
+                            # print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} SQL error: '{error_message}' in response body (likely database: {database}). {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
+                            print(f"{GRAY}[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error:{RESET} {PINK}'{error_message}'{RESET} {GRAY}in response body (likely database for each errors: {database}). Mutated URL used for testing: {mutated_url}{RESET}")
                         print("")
 
         # if target parameter(s) is not provided using --parameters, test for all parameters
@@ -743,21 +776,23 @@ if __name__ == "__main__":
                     # adds 123 value to specified parameter if its value is empty
                     url = replace_empty_url_param(url=url, target_param=parameter_name)
 
-                # -- Heuristic SQLi test THROUGH PRESENCE OF 5XX RESPONSE STATUS CODE
-                sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
-                # if test_sqli_500 doesn't return None
-                if sqli_500_code:
-                    mutated_url, response_status_code = sqli_500_code
-                    print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} {response_status_code} response code. {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
-                    print("")
+                if detection_mode_value == "both" or detection_mode_value == "status":
+                    # -- Heuristic SQLi test THROUGH PRESENCE OF 5XX RESPONSE STATUS CODE
+                    sqli_500_code = test_sqli_500(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
+                    # if test_sqli_500 doesn't return None
+                    if sqli_500_code:
+                        mutated_url, response_status_code = sqli_500_code
+                        print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} {response_status_code} response code. {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
+                        print("")
 
                 # -- Heuristic SQLi test THROUGH PRESENCE OF SQL ERRORS in response body
-                # Get baseline response
-                sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
-                if sqli_error_present is True:
-                    # print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} SQL error: '{error_message}' in response body (likely database: {database}). {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
-                    print(f"{GRAY}[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error:{RESET} {PINK}'{error_message}'{RESET} {GRAY}in response body (likely database: {database}). Mutated URL used for testing: {mutated_url}{RESET}")
-                    print("")
+                if detection_mode_value == "both" or detection_mode_value == "errors":
+                    # Get baseline response
+                    sqli_error_present, database, error_message, mutated_url =  test_sqli_error(url=url, parameter_name=parameter_name, original_parameter_value=parameter_value, timeout=timeout_value, proxy_url=proxy_url_value, headers=headers)
+                    if sqli_error_present is True:
+                        # print(f"{CYAN}[+] Potential SQLi for URL:{RESET} {url} {YELLOW}in Parameter:{RESET} {parameter_name}. {PINK}Detection Reason:{RESET} SQL error: '{error_message}' in response body (likely database: {database}). {ORANGE}Mutated URL used for testing:{RESET} {mutated_url}")
+                        print(f"{GRAY}[+] Potential SQLi for URL: {url} in Parameter: {parameter_name}. Detection Reason: SQL error:{RESET} {PINK}'{error_message}'{RESET} {GRAY}in response body (likely database for each errors: {database}). Mutated URL used for testing: {mutated_url}{RESET}")
+                        print("")
 
 
     MAX_PARALLEL = threads_value
