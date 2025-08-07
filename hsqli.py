@@ -354,7 +354,7 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
 
     if baseline_response.status_code == 429:
         if verbose_value:
-            print(f"{RED}[~] Response code: {baseline_response.status_code}. Probably rate limited.{RESET}")
+            print(f"{RED}[~] Response code: {baseline_response.status_code}. Probably rate limited.{RESET} For URL: {url}")
 
     if more_payloads is True:
         suffixes1 = ["'", '"', "'--", '"--', "'-- ", '"-- ', "'#", '"#', "'# ", '"# ', "';", '";', "';--", '";--', "';#", '";#']
@@ -552,7 +552,7 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
 
     if baseline_response.status_code == 429:
         if verbose_value:
-            print(f"{RED}[~] Response code: {baseline_response.status_code}. Probably rate limited.{RESET}")
+            print(f"{RED}[~] Response code: {baseline_response.status_code}. Probably rate limited.{RESET} For URL: {url}")
 
     if more_payloads is True:
         suffixes1 = ["'", '"', "'--", '"--', "'-- ", '"-- ', "'#", '"#', "'# ", '"# ', "';", '";', "';--", '";--', "';#", '";#']
@@ -723,7 +723,7 @@ if __name__ == "__main__":
         "-v",
         "--verbose",
         action="store_true",
-        help="Enable verbose mode."
+        help="Enable verbose mode. [reports rate limiting, status codes inconsistency.]"
     )
     parser.add_argument(
         "-w",
