@@ -24,6 +24,7 @@ GREEN = "\033[32m"
 CYAN = "\033[96m"
 PINK = "\033[95m"
 ORANGE = "\033[91m"
+RED = "\033[31m"
 RESET = "\033[0m"
 
 
@@ -350,6 +351,10 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
         # returns None if couldn't get a response
         return (None, None, None, None)
 
+    if baseline_response.status_code == 429:
+        if verbose_value:
+            print(f"{RED}[~] Response code: {baseline_response.status_code}. Probably rate limited.{RESET}")
+
     if more_payloads is True:
         suffixes1 = ["'", '"', "'--", '"--', "'-- ", '"-- ', "'#", '"#', "'# ", '"# ', "';", '";', "';--", '";--', "';#", '";#']
         suffixes2 = ["'&'", "'^'", "'*'", "' or ''-'", "' or '' '", "' or ''&'", "' or ''^'", "' or ''*'"]
@@ -528,11 +533,13 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
         baseline_response2 = requests.get(url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
         # if the response status codes for 2 baseline requests are not consistent, then don't test the provided target and return None
         if baseline_response.status_code != baseline_response2.status_code:
-            debug_print(f"[~] Baseline status codes inconsistent first try - request 1 status code: {baseline_response.status_code} vs request 2 status code: {baseline_response2.status_code}")
+            if verbose_value:
+                print(f"[~] Baseline status codes inconsistent first try - request 1 status code: {baseline_response.status_code} vs request 2 status code: {baseline_response2.status_code}")
             baseline_response = requests.get(url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
             baseline_response2 = requests.get(url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
             if baseline_response.status_code != baseline_response2.status_code:
-                debug_print(f"[~] Baseline status codes inconsistent for second try too, giving up... - request 1 status code: {baseline_response.status_code} vs request 2 status code: {baseline_response2.status_code}")
+                if verbose_value:
+                    print(f"[~] Baseline status codes inconsistent for second try too, giving up... - request 1 status code: {baseline_response.status_code} vs request 2 status code: {baseline_response2.status_code}")
                 return None
         if baseline_response.status_code >= 500 and baseline_response.status_code < 600:
             debug_print(f"[~] `test_sqli` Returning None because the baseline response returned a 5xx response code ({baseline_response.status_code}).")
@@ -541,6 +548,10 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
     except Exception as e:
         # returns None if couldn't get a response
         return None
+
+    if baseline_response.status_code == 429:
+        if verbose_value:
+            print(f"{RED}[~] Response code: {baseline_response.status_code}. Probably rate limited.{RESET}")
 
     if more_payloads is True:
         suffixes1 = ["'", '"', "'--", '"--', "'-- ", '"-- ', "'#", '"#', "'# ", '"# ', "';", '";', "';--", '";--', "';#", '";#']
@@ -707,6 +718,12 @@ if __name__ == "__main__":
         default=10,
         help="Maximum seconds to wait for a response (default 10). Example: --timeout 10"
     )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Enable verbose mode."
+    )
 
     argcomplete.autocomplete(parser)
     args = parser.parse_args()
@@ -731,6 +748,7 @@ if __name__ == "__main__":
     threads_value = args.threads
     more_payloads_value = args.more_payloads
     detection_mode_value = args.detection_mode
+    verbose_value = args.verbose
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0",
