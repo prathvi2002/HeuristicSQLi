@@ -535,12 +535,12 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
         # if the response status codes for 2 baseline requests are not consistent, then don't test the provided target and return None
         if baseline_response.status_code != baseline_response2.status_code:
             if verbose_value:
-                print(f"[~] Baseline status codes inconsistent first try - request 1 status code: {baseline_response.status_code} vs request 2 status code: {baseline_response2.status_code}")
+                print(f"[~] Baseline status codes inconsistent first try - request 1 status code: {baseline_response.status_code} vs request 2 status code: {baseline_response2.status_code}. {GRAY}For URL: {url}{RESET}")
             baseline_response = requests.get(url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
             baseline_response2 = requests.get(url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
             if baseline_response.status_code != baseline_response2.status_code:
                 if verbose_value:
-                    print(f"[~] Baseline status codes inconsistent for second try too, giving up... - request 1 status code: {baseline_response.status_code} vs request 2 status code: {baseline_response2.status_code}")
+                    print(f"[~] Baseline status codes inconsistent for second try too, giving up... - request 1 status code: {baseline_response.status_code} vs request 2 status code: {baseline_response2.status_code}. {GRAY}For URL {url}{RESET}")
                 return None
         if baseline_response.status_code >= 500 and baseline_response.status_code < 600:
             debug_print(f"[~] `test_sqli` Returning None because the baseline response returned a 5xx response code ({baseline_response.status_code}). For URL: {url}.")
