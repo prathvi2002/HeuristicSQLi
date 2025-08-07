@@ -543,7 +543,7 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
                     print(f"[~] Baseline status codes inconsistent for second try too, giving up... - request 1 status code: {baseline_response.status_code} vs request 2 status code: {baseline_response2.status_code}")
                 return None
         if baseline_response.status_code >= 500 and baseline_response.status_code < 600:
-            debug_print(f"[~] `test_sqli` Returning None because the baseline response returned a 5xx response code ({baseline_response.status_code}).")
+            debug_print(f"[~] `test_sqli` Returning None because the baseline response returned a 5xx response code ({baseline_response.status_code}). For URL: {url}.")
             return None
     # Handles all request failures
     except Exception as e:
@@ -580,7 +580,10 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
             # sending URL encoded payload and checking for potential sqli
             mutated_response = requests.get(mutated_url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
             if mutated_response.status_code >= 500 and mutated_response.status_code < 600:
-                return (mutated_url, mutated_response.status_code)
+                mutated_response2 = requests.get(mutated_url, timeout=timeout, proxies=proxies, verify=False, allow_redirects=False, headers=headers)
+                # if mutated response has 5xx response, confirm the 5xx response by sending a second request to rule out transient server errors
+                if mutated_response2.status_code >= 500 and mutated_response2.status_code < 600:
+                    return (mutated_url, mutated_response2.status_code)
             
             # sending non URL encoded payload and checking for potential sqli
             try:
@@ -592,7 +595,12 @@ def test_sqli_500(url, parameter_name, original_parameter_value, timeout, proxy_
                 mutated_response_raw_status_code, mutated_response_raw_response_body = mutated_response_raw
                 # mutated_response_raw_response_body = mutated_response_raw_response_body.lower()
                 if mutated_response_raw_status_code >= 500 and mutated_response_raw_status_code < 600:
-                    return (mutated_url_raw, mutated_response_raw_status_code)
+
+                    mutated_response_raw2 = raw_get_request(full_url=mutated_url_raw, proxy_url=proxy_url, headers=headers, timeout=timeout)
+                    mutated_response_raw_status_code2, mutated_response_raw_response_body2 = mutated_response_raw2
+                    # if mutated response has 5xx response, confirm the 5xx response by sending a second request to rule out transient server errors
+                    if mutated_response_raw_status_code2 >= 500 and mutated_response_raw_status_code2 < 600:
+                        return (mutated_url_raw, mutated_response_raw_status_code2)
 
         # Handles all request failures
         except Exception as e:
