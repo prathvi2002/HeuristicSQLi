@@ -371,7 +371,8 @@ def test_sqli_error(url, parameter_name, original_parameter_value, timeout, prox
     for suffix in suffixes:
         ## URL encoded
         payload = original_parameter_value + suffix
-        mutated_url = modified_url_param(url=url, target_param=parameter_name, replace_value=payload)
+        payload_encoded = str(quote(payload))
+        mutated_url = modified_url_param(url=url, target_param=parameter_name, replace_value=payload_encoded)
 
         ## Non URL encoded
         payload_raw = original_parameter_value + suffix
